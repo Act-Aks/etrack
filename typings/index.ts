@@ -38,11 +38,6 @@ export type HeaderProps = {
     rightIcon?: ReactNode
 }
 
-export type BackButtonProps = {
-    style?: ViewStyle
-    iconSize?: number
-}
-
 export type TransactionType = {
     id?: string
     type: string

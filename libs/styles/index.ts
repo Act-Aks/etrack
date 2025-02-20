@@ -52,3 +52,35 @@ export const welcomeStyles = StyleSheet.create(theme => ({
         width: '100%',
     },
 }))
+
+export const loginStyles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        gap: theme.spacing.y30,
+        paddingHorizontal: theme.spacing.x20,
+    },
+    welcomeText: {
+        fontSize: verticalScale(20),
+        fontWeight: 'bold',
+        color: theme.colors.text,
+    },
+    form: {
+        gap: theme.spacing.y20,
+    },
+    forgotPassword: {
+        color: theme.colors.text,
+        fontWeight: '500',
+        textAlign: 'right',
+    },
+    footer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 5,
+    },
+    footerText: {
+        color: theme.colors.text,
+        fontSize: verticalScale(15),
+        textAlign: 'center',
+    },
+}))
