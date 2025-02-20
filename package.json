@@ -5,13 +5,14 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
     "prettier": "prettier --write .",
-    "update": "yarn upgrade-interactive"
+    "update": "yarn upgrade-interactive",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "cmt": "npx git-cz"
   },
   "jest": {
     "preset": "jest-expo"
