@@ -9,7 +9,8 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.actaks.etrack"
+      "bundleIdentifier": "com.actaks.etrack",
+      "deploymentTarget": "16.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -37,6 +38,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cd59826b-1840-4f89-b9bc-0ba74c1a9a9b"
+      }
+    },
+    "owner": "act-aks"
   }
 }
