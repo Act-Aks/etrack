@@ -9,7 +9,8 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "prettier": "prettier --write .",
-    "update": "yarn upgrade-interactive",
+    "update:all": "yarn upgrade-interactive",
+    "update": "yarn expo install expo@latest && yarn expo install --fix",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "cmt": "npx git-cz"
