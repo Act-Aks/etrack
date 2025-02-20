@@ -1,3 +1,4 @@
+import { View, Text } from "react-native";
 import { BaseButtonProps } from "./BaseButton.static";
 
 const BaseButton: React.FC<BaseButtonProps> = ({ children, ...props }) => {

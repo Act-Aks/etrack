@@ -1,4 +1,4 @@
-import { colors } from "@/constants/theme";
+import { colors } from "@/libs/constants/theme";
 import { StyleSheet } from "react-native";
 
 export const screenWrapperStyles = StyleSheet.create({

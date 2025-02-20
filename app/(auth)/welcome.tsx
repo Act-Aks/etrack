@@ -1,7 +1,6 @@
 import { welcomeStyles } from "@/assets/styles";
-import { BaseText, ScreenWrapper } from "@/components";
-import { colors } from "@/constants/theme";
-import { Webcam } from "phosphor-react-native";
+import { BaseText, ScreenWrapper } from "@/libs/components";
+import { colors } from "@/libs/constants/theme";
 import { TouchableOpacity, View, Image } from "react-native";
 
 const Welcome = () => {

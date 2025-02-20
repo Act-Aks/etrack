@@ -1,24 +1,19 @@
 import { StyleSheet } from "react-native-unistyles";
+import { spacing, themeColors } from "@/libs/constants/theme";
 
 const lightTheme = {
-  colors: {
-    primary: "#ff1ff4",
-    secondary: "#1ff4ff",
-  },
-  gap: (v: number) => v * 8,
+  colors: themeColors.light,
+  spacing: spacing,
 };
 
-const otherTheme = {
-  colors: {
-    primary: "#aa12ff",
-    secondary: "pink",
-  },
-  gap: (v: number) => v * 8,
+const darkTheme = {
+  colors: themeColors.dark,
+  spacing: spacing,
 };
 
 const appThemes = {
   light: lightTheme,
-  other: otherTheme,
+  dark: darkTheme,
 };
 
 const breakpoints = {
@@ -39,7 +34,7 @@ declare module "react-native-unistyles" {
 
 StyleSheet.configure({
   settings: {
-    initialTheme: "light",
+    initialTheme: "dark",
   },
   breakpoints,
   themes: appThemes,

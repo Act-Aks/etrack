@@ -1,7 +1,7 @@
-import { colors } from "@/constants/theme";
+import { colors } from "@/libs/constants/theme";
 import { BaseTextProps, DEFAULT_TEXT_SIZE } from "./BaseText.static";
 import { Text, TextStyle } from "react-native";
-import { verticalScale } from "@/utils/styling";
+import { verticalScale } from "@/libs/utils/styling";
 
 const BaseText: React.FC<BaseTextProps> = ({
   size,

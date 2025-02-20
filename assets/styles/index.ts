@@ -1,5 +1,5 @@
-import { colors, spacing } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
+import { colors, spacing } from "@/libs/constants/theme";
+import { verticalScale } from "@/libs/utils/styling";
 import { Spade } from "phosphor-react-native";
 import { StyleSheet } from "react-native";
 
