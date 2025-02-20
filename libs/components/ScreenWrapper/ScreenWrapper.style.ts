@@ -1,9 +1,9 @@
-import { colors } from "@/libs/constants/theme";
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native-unistyles'
 
-export const screenWrapperStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.neutral900,
-  },
-});
+export const screenWrapperStyles = StyleSheet.create(theme => ({
+    container: ({ paddingTop }: { paddingTop: number }) => ({
+        flex: 1,
+        backgroundColor: theme.colors.background,
+        paddingTop,
+    }),
+}))
