@@ -9,7 +9,7 @@ export const textStyle = StyleSheet.create(theme => ({
         fontWeight,
     }: Pick<BaseTextProps, 'size' | 'color' | 'fontWeight'>) => ({
         fontSize: verticalScale(size ?? DEFAULT_TEXT_SIZE),
-        color: color ?? theme.colors.text,
+        color: theme.colors[color ?? 'text'],
         fontWeight: fontWeight ?? '400',
     }),
 }))

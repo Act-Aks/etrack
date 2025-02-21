@@ -51,7 +51,7 @@ const Welcome: React.FC = () => {
                     >
                         <BaseText
                             size={17}
-                            color={colors.textLight}
+                            color={'textLight'}
                             style={welcomeStyles.footerText}
                         >
                             Expense must be tracked to manage your finances
@@ -68,7 +68,7 @@ const Welcome: React.FC = () => {
                         <BaseButton onPress={handleRegister}>
                             <BaseText
                                 size={22}
-                                color={colors.neutral900}
+                                color={'neutral900'}
                                 fontWeight={'500'}
                             >
                                 Get Started

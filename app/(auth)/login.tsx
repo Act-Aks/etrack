@@ -19,7 +19,7 @@ const Login = () => {
                 </View>
 
                 <View style={loginStyles.form}>
-                    <BaseText size={16} color={colors.textLighter}>
+                    <BaseText size={16} color={'textLighter'}>
                         Login to track your expenses
                     </BaseText>
                 </View>
