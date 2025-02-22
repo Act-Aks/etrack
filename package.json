@@ -13,7 +13,11 @@
         "update": "yarn expo install expo@latest && yarn expo install --fix",
         "android": "expo run:android",
         "ios": "expo run:ios",
-        "cmt": "npx git-cz"
+        "cmt": "npx git-cz",
+        "build:dev:android": "yarn eas build --profile development --platform android",
+        "build:dev:ios": "yarn eas build --profile development --platform ios",
+        "build:prod:android": "yarn eas build --profile production --platform android",
+        "build:prod:ios": "yarn eas build --profile production --platform ios"
     },
     "jest": {
         "preset": "jest-expo"
