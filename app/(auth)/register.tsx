@@ -1,11 +1,128 @@
-import { BaseText } from '@/libs/components'
-import { View } from 'react-native'
+import {
+    BackButton,
+    BaseButton,
+    BaseText,
+    Input,
+    ScreenWrapper,
+} from '@/libs/components'
+import { colors } from '@/libs/constants/theme'
+import { loginStyles } from '@/libs/styles'
+import { verticalScale } from '@/libs/utils/styling'
+import { useRouter } from 'expo-router'
+import { At, Lock, User } from 'phosphor-react-native'
+import { useRef, useState } from 'react'
+import { Alert, Pressable, View } from 'react-native'
+
+type RegisterInputRefs = {
+    name: string
+    email: string
+    password: string
+}
 
 const Register = () => {
+    const router = useRouter()
+    const inputRef = useRef<RegisterInputRefs>({
+        name: '',
+        email: '',
+        password: '',
+    })
+    const [loading, setLoading] = useState<boolean>(false)
+
+    const handleRegister = () => {
+        if (
+            !inputRef.current.name ||
+            !inputRef.current.email ||
+            !inputRef.current.password
+        ) {
+            Alert.alert('Register', 'Please fill in all fields')
+            return
+        }
+        // Handle login logic here
+    }
+    const goToLogin = () => {
+        router.navigate('/(auth)/login')
+    }
+
     return (
-        <View>
-            <BaseText>Register</BaseText>
-        </View>
+        <ScreenWrapper>
+            <View style={loginStyles.container}>
+                <BackButton iconSize={28} />
+
+                <View>
+                    <BaseText size={30} fontWeight={'800'}>
+                        Let's',
+                    </BaseText>
+                    <BaseText size={30} fontWeight={'800'}>
+                        Get Started
+                    </BaseText>
+                </View>
+
+                <View style={loginStyles.form}>
+                    <BaseText size={16} color={'textLighter'}>
+                        Create an account to track your expenses
+                    </BaseText>
+                </View>
+                <Input
+                    placeholder={'Name'}
+                    keyboardType={'default'}
+                    autoCapitalize={'none'}
+                    onChangeText={text => (inputRef.current.name = text)}
+                    icon={
+                        <User
+                            size={verticalScale(26)}
+                            color={colors.neutral300}
+                            weight={'fill'}
+                        />
+                    }
+                />
+                <Input
+                    placeholder={'Email'}
+                    keyboardType={'email-address'}
+                    autoCapitalize={'none'}
+                    onChangeText={text => (inputRef.current.email = text)}
+                    icon={
+                        <At
+                            size={verticalScale(26)}
+                            color={colors.neutral300}
+                            weight={'fill'}
+                        />
+                    }
+                />
+                <Input
+                    placeholder={'Password'}
+                    keyboardType={'default'}
+                    autoCapitalize={'none'}
+                    onChangeText={text => (inputRef.current.password = text)}
+                    secureTextEntry
+                    icon={
+                        <Lock
+                            size={verticalScale(26)}
+                            color={colors.neutral300}
+                            weight={'fill'}
+                        />
+                    }
+                />
+
+                <BaseButton loading={loading} onPress={handleRegister}>
+                    <BaseText fontWeight={'700'} color={'black'} size={21}>
+                        Sign Up
+                    </BaseText>
+                </BaseButton>
+
+                <View style={loginStyles.footer}>
+                    <BaseText size={15}>Already have an account?</BaseText>
+                    <Pressable onPress={goToLogin}>
+                        <BaseText
+                            fontWeight={'700'}
+                            size={15}
+                            color={'primary'}
+                        >
+                            Login
+                        </BaseText>
+                    </Pressable>
+                </View>
+            </View>
+        </ScreenWrapper>
     )
 }
 

@@ -1,22 +1,19 @@
-import { TextInput } from 'react-native'
+import { TextInput, View } from 'react-native'
 import { inputStyles } from './Input.style'
 import { InputProps } from './Input.static'
+import { colors } from '@/libs/constants/theme'
 
-const Input: React.FC<InputProps> = ({
-    placeholder,
-    keyboardType,
-    autoCapitalize,
-    autoCorrect,
-    style,
-}) => {
+const Input: React.FC<InputProps> = ({ style, icon, inputRef, ...props }) => {
     return (
-        <TextInput
-            placeholder={placeholder}
-            keyboardType={keyboardType}
-            autoCapitalize={autoCapitalize}
-            autoCorrect={autoCorrect}
-            style={[inputStyles.input, style]}
-        />
+        <View style={inputStyles.container}>
+            {icon}
+            <TextInput
+                ref={inputRef}
+                placeholderTextColor={colors.neutral400}
+                style={[inputStyles.input, style]}
+                {...props}
+            />
+        </View>
     )
 }
 
