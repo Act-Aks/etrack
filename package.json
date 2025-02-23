@@ -16,6 +16,7 @@
         "cmt": "npx git-cz",
         "build:dev:android": "yarn eas build --profile development --platform android",
         "build:dev:ios": "yarn eas build --profile development --platform ios",
+        "build:dev-sim:ios": "yarn eas build --profile development-simulator --platform ios",
         "build:prod:android": "yarn eas build --profile production --platform android",
         "build:prod:ios": "yarn eas build --profile production --platform ios"
     },
