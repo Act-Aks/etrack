@@ -23,6 +23,13 @@ const Login = () => {
                         Login to track your expenses
                     </BaseText>
                 </View>
+                <Input
+                    placeholder='Email'
+                    keyboardType='email-address'
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    style={loginStyles.input}
+                />
             </View>
             <BaseText>Login</BaseText>
         </ScreenWrapper>

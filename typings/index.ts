@@ -73,15 +73,6 @@ export type TransactionItemProps = {
     handleClick: Function
 }
 
-export interface InputProps extends TextInputProps {
-    icon?: React.ReactNode
-    containerStyle?: ViewStyle
-    inputStyle?: TextStyle
-    inputRef?: React.RefObject<TextInput>
-    //   label?: string;
-    //   error?: string;
-}
-
 export type ImageUploadProps = {
     file?: any
     onSelect: (file: any) => void

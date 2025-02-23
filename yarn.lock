@@ -1214,9 +1214,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/cli@npm:0.22.17":
-  version: 0.22.17
-  resolution: "@expo/cli@npm:0.22.17"
+"@expo/cli@npm:0.22.18":
+  version: 0.22.18
+  resolution: "@expo/cli@npm:0.22.18"
   dependencies:
     "@0no-co/graphql.web": "npm:^1.0.8"
     "@babel/runtime": "npm:^7.20.0"
@@ -1292,7 +1292,7 @@ __metadata:
     ws: "npm:^8.12.1"
   bin:
     expo-internal: build/bin/cli
-  checksum: 10/035380c22c486977c8c43c3ef5f5f6d00b1c187475a645ef1d1ccd75a6aeed9c80117f2c81442025db3b4ec6b1d134773bfc61565cecf0397e7a3a970373241a
+  checksum: 10/a970e92235b74eed54017603c664c36edd8f5ef9db2dda1f1a5413524cc674f8b83b1765148ac48b01b5b5a4ea65089d18bc0d03a89a29588ce48dc97b8092cd
   languageName: node
   linkType: hard
 
@@ -1525,7 +1525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/json-file@npm:^9.0.0, @expo/json-file@npm:^9.0.1, @expo/json-file@npm:^9.0.2, @expo/json-file@npm:~9.0.0, @expo/json-file@npm:~9.0.1, @expo/json-file@npm:~9.0.2":
+"@expo/json-file@npm:^9.0.0, @expo/json-file@npm:^9.0.2, @expo/json-file@npm:~9.0.0, @expo/json-file@npm:~9.0.1, @expo/json-file@npm:~9.0.2":
   version: 9.0.2
   resolution: "@expo/json-file@npm:9.0.2"
   dependencies:
@@ -4356,9 +4356,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-expo@npm:~12.0.8":
-  version: 12.0.8
-  resolution: "babel-preset-expo@npm:12.0.8"
+"babel-preset-expo@npm:~12.0.9":
+  version: 12.0.9
+  resolution: "babel-preset-expo@npm:12.0.9"
   dependencies:
     "@babel/plugin-proposal-decorators": "npm:^7.12.9"
     "@babel/plugin-transform-export-namespace-from": "npm:^7.22.11"
@@ -4377,7 +4377,7 @@ __metadata:
       optional: true
     react-compiler-runtime:
       optional: true
-  checksum: 10/7b33dc649dc0c96d500f24ce31dc0b16ecb406595b6702d2aa702bca57b220b0ed0ef0d75bb72a41d1b25591dc629ea7b9170ca28e782fc02926979525b8bb2c
+  checksum: 10/f2e035c5086c466d38bac85bc7069260413a26d1480416c7fa2f6d40c2103ddda6a20203021fac6f5812e45a6d3ba20edeaa1edb6a6c4092674c78a56f47d174
   languageName: node
   linkType: hard
 
@@ -5994,7 +5994,7 @@ __metadata:
     "@types/react": "npm:~18.3.18"
     "@types/react-test-renderer": "npm:^19.0.0"
     eas-cli: "npm:^15.0.10"
-    expo: "npm:^52.0.36"
+    expo: "npm:^52.0.37"
     expo-blur: "npm:~14.0.3"
     expo-constants: "npm:~17.0.7"
     expo-dev-client: "npm:~5.0.12"
@@ -6009,7 +6009,7 @@ __metadata:
     expo-web-browser: "npm:~14.0.2"
     firebase: "npm:^11.3.1"
     jest: "npm:^29.7.0"
-    jest-expo: "npm:~52.0.4"
+    jest-expo: "npm:~52.0.5"
     phosphor-react-native: "npm:^2.3.1"
     prettier: "npm:^3.5.1"
     react: "npm:18.3.1"
@@ -6391,18 +6391,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:^52.0.36":
-  version: 52.0.36
-  resolution: "expo@npm:52.0.36"
+"expo@npm:^52.0.37":
+  version: 52.0.37
+  resolution: "expo@npm:52.0.37"
   dependencies:
     "@babel/runtime": "npm:^7.20.0"
-    "@expo/cli": "npm:0.22.17"
+    "@expo/cli": "npm:0.22.18"
     "@expo/config": "npm:~10.0.10"
     "@expo/config-plugins": "npm:~9.0.15"
     "@expo/fingerprint": "npm:0.11.11"
     "@expo/metro-config": "npm:0.19.11"
     "@expo/vector-icons": "npm:^14.0.0"
-    babel-preset-expo: "npm:~12.0.8"
+    babel-preset-expo: "npm:~12.0.9"
     expo-asset: "npm:~11.0.4"
     expo-constants: "npm:~17.0.7"
     expo-file-system: "npm:~18.0.11"
@@ -6428,7 +6428,7 @@ __metadata:
       optional: true
   bin:
     expo: bin/cli
-  checksum: 10/df1cd6309098d0c3e4a2a499a3e9b8c6f8d08c0c3d64df2343e347669464a159172b5ce10bbd5bf2660fb656869fa5dd56ca445ac2dbe9322870a7baa69bea1c
+  checksum: 10/ab6c5aace3b51d02866ec79af01e1a4509ddc7fb2cbc16cb34770880479ff7edbca1a0c882904dcca837f2ac797603f08df289f075238de5bc5e90d047560f6c
   languageName: node
   linkType: hard
 
@@ -7977,12 +7977,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-expo@npm:~52.0.4":
-  version: 52.0.4
-  resolution: "jest-expo@npm:52.0.4"
+"jest-expo@npm:~52.0.5":
+  version: 52.0.5
+  resolution: "jest-expo@npm:52.0.5"
   dependencies:
-    "@expo/config": "npm:~10.0.9"
-    "@expo/json-file": "npm:^9.0.1"
+    "@expo/config": "npm:~10.0.10"
+    "@expo/json-file": "npm:^9.0.2"
     "@jest/create-cache-key-function": "npm:^29.2.1"
     "@jest/globals": "npm:^29.2.1"
     babel-jest: "npm:^29.2.1"
@@ -8003,7 +8003,7 @@ __metadata:
     react-native: "*"
   bin:
     jest: bin/jest.js
-  checksum: 10/32ded5c72ef87e5a0b889623ded2ac902a0b88451c497bdf65ea663b3610ed8123c07c24db8b1b2ab93a1af93251be0c85772a5391c4cdb4dddc2885649a8607
+  checksum: 10/a52e1d844fd387ae6bc2506381fa83e214366901cb7f5276fccb338a3ba68ea9f4c5b1610bff78021bd378b95f3c6dd76454d937c458f6c3f15aa83d122cb7d0
   languageName: node
   linkType: hard
 
