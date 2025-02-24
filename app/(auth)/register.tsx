@@ -6,11 +6,12 @@ import {
     ScreenWrapper,
 } from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
+import { AuthHooks } from '@/libs/hooks/auth'
 import { loginStyles } from '@/libs/styles'
 import { verticalScale } from '@/libs/utils/styling'
 import { useRouter } from 'expo-router'
 import { At, Lock, User } from 'phosphor-react-native'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Alert, Pressable, View } from 'react-native'
 
 type RegisterInputRefs = {
@@ -19,25 +20,24 @@ type RegisterInputRefs = {
     password: string
 }
 
-const Register = () => {
+const Register: React.FC = () => {
     const router = useRouter()
     const inputRef = useRef<RegisterInputRefs>({
         name: '',
         email: '',
         password: '',
     })
-    const [loading, setLoading] = useState<boolean>(false)
+    const { signUp, isLoading: loading } = AuthHooks.useSignUp()
 
-    const handleRegister = () => {
-        if (
-            !inputRef.current.name ||
-            !inputRef.current.email ||
-            !inputRef.current.password
-        ) {
+    const handleRegister = async () => {
+        const { name, email, password } = inputRef.current
+        if (!name || !email || !password) {
             Alert.alert('Register', 'Please fill in all fields')
             return
         }
-        // Handle login logic here
+        const res = await signUp({ email, password, name })
+
+        console.log(res)
     }
     const goToLogin = () => {
         router.navigate('/(auth)/login')
