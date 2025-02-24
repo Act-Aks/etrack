@@ -6,7 +6,7 @@ import {
     ScreenWrapper,
 } from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
-import { AuthHooks } from '@/libs/hooks/auth'
+import { useAuth } from '@/libs/contexts/AuthContext'
 import { loginStyles } from '@/libs/styles'
 import { verticalScale } from '@/libs/utils/styling'
 import { useRouter } from 'expo-router'
@@ -27,7 +27,7 @@ const Register: React.FC = () => {
         email: '',
         password: '',
     })
-    const { signUp, isLoading: loading } = AuthHooks.useSignUp()
+    const { signUp, isSigningUp } = useAuth()
 
     const handleRegister = async () => {
         const { name, email, password } = inputRef.current
@@ -103,7 +103,7 @@ const Register: React.FC = () => {
                     }
                 />
 
-                <BaseButton loading={loading} onPress={handleRegister}>
+                <BaseButton loading={isSigningUp} onPress={handleRegister}>
                     <BaseText fontWeight={'700'} color={'black'} size={21}>
                         Sign Up
                     </BaseText>

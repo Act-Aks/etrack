@@ -6,11 +6,12 @@ import {
     ScreenWrapper,
 } from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
+import { useAuth } from '@/libs/contexts/AuthContext'
 import { loginStyles } from '@/libs/styles'
 import { verticalScale } from '@/libs/utils/styling'
 import { useRouter } from 'expo-router'
 import { At, Lock } from 'phosphor-react-native'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Alert, Pressable, View } from 'react-native'
 
 type LoginInputRefs = {
@@ -21,14 +22,16 @@ type LoginInputRefs = {
 const Login = () => {
     const router = useRouter()
     const inputRef = useRef<LoginInputRefs>({ email: '', password: '' })
-    const [loading, setLoading] = useState<boolean>(false)
+    const { signIn, isSigningIn } = useAuth()
 
-    const handleLogin = () => {
-        if (!inputRef.current.email || !inputRef.current.password) {
+    const handleLogin = async () => {
+        const { email, password } = inputRef.current
+        if (!email || !password) {
             Alert.alert('Login', 'Please fill in all fields')
             return
         }
-        // Handle login logic here
+
+        await signIn({ email, password })
     }
     const goToSignUp = () => {
         router.navigate('/(auth)/register')
@@ -89,7 +92,7 @@ const Login = () => {
                     Forgot Password?
                 </BaseText>
 
-                <BaseButton loading={loading} onPress={handleLogin}>
+                <BaseButton loading={isSigningIn} onPress={handleLogin}>
                     <BaseText fontWeight={'700'} color={'black'} size={21}>
                         Login
                     </BaseText>

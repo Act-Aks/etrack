@@ -1,8 +1,5 @@
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    UserCredential,
-} from 'firebase/auth'
+import { getUser } from '@/libs/services/auth'
+import { User } from '@/typings'
 import {
     createContext,
     PropsWithChildren,
@@ -12,8 +9,6 @@ import {
     useState,
 } from 'react'
 import { AuthHooks, UseSignIn, UseSignUp } from '../hooks/auth'
-import { User } from '@/typings'
-import { getUser } from '@/libs/services/auth'
 
 type TAuthContext = {
     user: User | null
@@ -21,14 +16,16 @@ type TAuthContext = {
     signIn: UseSignIn['signIn']
     signUp: UseSignUp['signUp']
     updateUser: (userId: string) => Promise<void>
+    isSigningIn: boolean
+    isSigningUp: boolean
 }
 
 const AuthContext = createContext<TAuthContext | null>(null)
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null)
-    const { signIn } = AuthHooks.useSignIn()
-    const { signUp } = AuthHooks.useSignUp()
+    const { signIn, isLoading: isSigningIn } = AuthHooks.useSignIn()
+    const { signUp, isLoading: isSigningUp } = AuthHooks.useSignUp()
 
     const updateUser = useCallback(async (uid: string) => {
         try {
@@ -40,7 +37,15 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }, [])
 
     const contextValues: TAuthContext = useMemo(
-        () => ({ user, setUser, signIn, signUp, updateUser }),
+        () => ({
+            user,
+            setUser,
+            signIn,
+            signUp,
+            updateUser,
+            isSigningIn,
+            isSigningUp,
+        }),
         [user, updateUser],
     )
 

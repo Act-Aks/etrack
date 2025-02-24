@@ -1,5 +1,6 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { getUser, login, register } from '@/libs/services/auth'
+import { login, register } from '@/libs/services/auth'
+import { useMutation } from '@tanstack/react-query'
+import { Alert } from 'react-native'
 
 const useSignIn = () => {
     const {
@@ -10,7 +11,10 @@ const useSignIn = () => {
         mutationFn: login,
         mutationKey: ['SignIn'],
         onSuccess: () => {
-            toast.success('Successfully logged in!')
+            Alert.alert('Successfully logged in!')
+        },
+        onError: (error: any) => {
+            Alert.alert(error?.message || 'Failed to login')
         },
     })
 
@@ -26,7 +30,10 @@ const useSignUp = () => {
         mutationFn: register,
         mutationKey: ['SignUp'],
         onSuccess: () => {
-            toast.success('Successfully signed up!')
+            Alert.alert('Successfully signed up!')
+        },
+        onError: (error: any) => {
+            Alert.alert(error?.message || 'Failed to sign up')
         },
     })
 
