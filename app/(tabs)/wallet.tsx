@@ -1,11 +1,11 @@
 import { BaseText, ScreenWrapper } from '@/libs/components'
 
-const Statistics: React.FC = () => {
+const Wallet: React.FC = () => {
     return (
         <ScreenWrapper>
-            <BaseText>Statistics</BaseText>
+            <BaseText>Wallet</BaseText>
         </ScreenWrapper>
     )
 }
 
-export default Statistics
+export default Wallet

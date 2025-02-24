@@ -87,3 +87,63 @@ export const loginStyles = StyleSheet.create(theme => ({
         textAlign: 'center',
     },
 }))
+
+export const profileStyles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        paddingHorizontal: theme.spacing.x20,
+    },
+    userInfo: {
+        marginTop: verticalScale(30),
+        alignSelf: 'center',
+        gap: theme.spacing.y15,
+    },
+    avatarContainer: {
+        alignSelf: 'center',
+        position: 'relative',
+    },
+    avatar: {
+        alignSelf: 'center',
+        backgroundColor: theme.colors.neutral300,
+        height: verticalScale(120),
+        width: verticalScale(120),
+        borderRadius: 200,
+    },
+    editIcon: {
+        position: 'absolute',
+        bottom: 5,
+        right: 5,
+        backgroundColor: theme.colors.neutral100,
+        borderRadius: 50,
+        shadowColor: theme.colors.black,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
+        elevation: 5,
+        padding: 6,
+    },
+    nameConatiner: {
+        gap: verticalScale(4),
+        alignItems: 'center',
+    },
+    listIcon: {
+        height: verticalScale(44),
+        width: verticalScale(44),
+        backgroundColor: theme.colors.neutral500,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: theme.radius.r15,
+        borderCurve: 'continuous',
+    },
+    listItem: {
+        marginBottom: verticalScale(17),
+    },
+    accountOptions: {
+        marginTop: theme.spacing.y35,
+    },
+    flexRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: theme.spacing.x10,
+    },
+}))

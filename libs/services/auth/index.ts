@@ -3,6 +3,7 @@ import { User } from '@/typings'
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    signOut,
 } from 'firebase/auth'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 
@@ -44,6 +45,14 @@ export const register = async ({ email, password, name }: SignUpParams) => {
         return userCredential.user
     } catch (error: any) {
         throw new Error(error?.message || 'Failed to register')
+    }
+}
+
+export const logout = async () => {
+    try {
+        await signOut(auth)
+    } catch (error: any) {
+        throw new Error(error?.message || 'Failed to logout')
     }
 }
 

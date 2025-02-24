@@ -31,7 +31,7 @@ const Login = () => {
             return
         }
         await signIn({ email, password })
-        router.navigate('/(root)/home')
+        router.navigate('/(tabs)')
     }
     const goToSignUp = () => {
         router.navigate('/(auth)/register')

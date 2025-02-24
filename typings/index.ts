@@ -38,13 +38,6 @@ export type IconProps = {
     fill?: string
 }
 
-export type HeaderProps = {
-    title?: string
-    style?: ViewStyle
-    leftIcon?: ReactNode
-    rightIcon?: ReactNode
-}
-
 export type TransactionType = {
     id?: string
     type: string

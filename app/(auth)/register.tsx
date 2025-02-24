@@ -36,7 +36,7 @@ const Register: React.FC = () => {
             return
         }
         await signUp({ email, password, name })
-        router.navigate('/(root)/home')
+        router.navigate('/(tabs)')
     }
     const goToLogin = () => {
         router.navigate('/(auth)/login')
