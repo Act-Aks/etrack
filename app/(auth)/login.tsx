@@ -30,8 +30,8 @@ const Login = () => {
             Alert.alert('Login', 'Please fill in all fields')
             return
         }
-
         await signIn({ email, password })
+        router.navigate('/(root)/home')
     }
     const goToSignUp = () => {
         router.navigate('/(auth)/register')

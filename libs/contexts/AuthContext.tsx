@@ -5,10 +5,15 @@ import {
     PropsWithChildren,
     useCallback,
     useContext,
+    useEffect,
     useMemo,
     useState,
 } from 'react'
-import { AuthHooks, UseSignIn, UseSignUp } from '../hooks/auth'
+import { AuthHooks, UseSignIn, UseSignUp } from '@/libs/hooks/auth'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../configs/firebase'
+import { useRouter } from 'expo-router'
+import { Route } from 'expo-router/build/Route'
 
 type TAuthContext = {
     user: User | null
@@ -26,6 +31,26 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null)
     const { signIn, isLoading: isSigningIn } = AuthHooks.useSignIn()
     const { signUp, isLoading: isSigningUp } = AuthHooks.useSignUp()
+
+    const router = useRouter()
+
+    useEffect(() => {
+        const subscription = onAuthStateChanged(auth, user => {
+            if (user) {
+                setUser({
+                    uid: user.uid,
+                    email: user.email,
+                    name: user.displayName,
+                })
+                router.replace('/(tabs)')
+            } else {
+                setUser(null)
+                router.replace('/(auth)/welcome')
+            }
+        })
+
+        return () => subscription()
+    }, [])
 
     const updateUser = useCallback(async (uid: string) => {
         try {
@@ -46,7 +71,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
             isSigningIn,
             isSigningUp,
         }),
-        [user, updateUser],
+        [user, updateUser, isSigningIn, isSigningUp],
     )
 
     return (

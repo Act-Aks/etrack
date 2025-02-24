@@ -2,6 +2,9 @@ import { verticalScale } from '@/libs/utils/styling'
 import { StyleSheet } from 'react-native-unistyles'
 
 export const rootStyles = StyleSheet.create({
+    root: {
+        flex: 1,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',

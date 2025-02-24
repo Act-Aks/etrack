@@ -1,6 +1,5 @@
 import { welcomeStyles } from '@/libs/styles'
 import { BaseButton, BaseText, ScreenWrapper } from '@/libs/components'
-import { colors } from '@/libs/constants/theme'
 import { TouchableOpacity, View } from 'react-native'
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated'
 import { useRouter } from 'expo-router'

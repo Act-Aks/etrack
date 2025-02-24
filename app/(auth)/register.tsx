@@ -35,9 +35,8 @@ const Register: React.FC = () => {
             Alert.alert('Register', 'Please fill in all fields')
             return
         }
-        const res = await signUp({ email, password, name })
-
-        console.log(res)
+        await signUp({ email, password, name })
+        router.navigate('/(root)/home')
     }
     const goToLogin = () => {
         router.navigate('/(auth)/login')
