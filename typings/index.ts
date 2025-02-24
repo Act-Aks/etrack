@@ -8,7 +8,8 @@ export type ModalWrapperProps = {
     children: React.ReactNode
     bg?: string
 }
-export type accountOptionType = {
+
+export type AccountOption = {
     title: string
     icon: React.ReactNode
     bgColor: string

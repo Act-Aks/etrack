@@ -67,3 +67,15 @@ export const getYearsRange = (startYear: number, endYear: number): any => {
     // return result;
     return result.reverse()
 }
+
+export const getImage = async (file: any) => {
+    if (file && typeof file === 'string') {
+        return file
+    }
+
+    if (file && typeof file === 'object' && file.hasOwnProperty('uri')) {
+        return file.uri
+    }
+
+    return require('@/assets/images/defaultAvatar.png')
+}
