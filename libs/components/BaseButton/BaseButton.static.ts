@@ -6,5 +6,6 @@ export type BaseButtonProps = PropsWithChildren<
         style?: ViewStyle
         onPress?: () => void
         loading?: boolean
+        asChild?: boolean
     }
 >

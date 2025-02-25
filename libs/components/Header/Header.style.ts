@@ -15,5 +15,10 @@ export const headerStyles = StyleSheet.create(theme => ({
     leftIcon: {
         alignSelf: 'flex-start',
     },
-    rightIcon: {},
+    rightIcon: {
+        alignSelf: 'flex-end',
+    },
+    emptyView: {
+        width: 40,
+    },
 }))

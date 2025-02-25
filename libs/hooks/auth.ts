@@ -1,6 +1,12 @@
-import { login, register, logout } from '@/libs/services/auth'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import {
+    updateUser as editUser,
+    login,
+    logout,
+    register,
+} from '@/libs/services/auth'
 import { Toast } from '@/libs/utils/misc'
+import { useMutation } from '@tanstack/react-query'
+import { Keys } from '../constants/keys'
 
 const handleAuthError = (error: Error) => {
     let errorMessage = error.message
@@ -25,7 +31,7 @@ const useSignIn = () => {
         isPending,
     } = useMutation({
         mutationFn: login,
-        mutationKey: ['SignIn'],
+        mutationKey: [Keys.MUTATION.SIGN_IN],
         onSuccess: Toast.enqueueSuccess('Successfully logged in'),
         onError: handleAuthError,
     })
@@ -40,7 +46,7 @@ const useSignUp = () => {
         isPending,
     } = useMutation({
         mutationFn: register,
-        mutationKey: ['SignUp'],
+        mutationKey: [Keys.MUTATION.SIGN_UP],
         onSuccess: Toast.enqueueSuccess('Successfully signed up!'),
         onError: handleAuthError,
     })
@@ -55,7 +61,7 @@ export const useSignOut = () => {
         isPending,
     } = useMutation({
         mutationFn: logout,
-        mutationKey: ['SignOut'],
+        mutationKey: [Keys.MUTATION.SIGN_OUT],
         onSuccess: Toast.enqueueSuccess('Successfully logged out'),
         onError: handleAuthError,
     })
@@ -63,12 +69,28 @@ export const useSignOut = () => {
     return { signOut, error, isLoading: isPending }
 }
 
+const useUpdateUser = () => {
+    const {
+        mutateAsync: updateUser,
+        isPending,
+        error,
+    } = useMutation({
+        mutationFn: editUser,
+        mutationKey: [Keys.MUTATION.UPDATE_USER],
+        onSuccess: Toast.enqueueSuccess('Successfully updated user'),
+        onError: Toast.enqueueError,
+    })
+    return { updateUser, isLoading: isPending, error }
+}
+
 export type UseSignIn = ReturnType<typeof useSignIn>
 export type UseSignUp = ReturnType<typeof useSignUp>
 export type UseSignOut = ReturnType<typeof useSignOut>
+export type UseUpdateUser = ReturnType<typeof useUpdateUser>
 
 export const AuthHooks = {
     useSignIn,
     useSignUp,
     useSignOut,
+    useUpdateUser,
 }

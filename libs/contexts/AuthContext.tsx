@@ -1,5 +1,8 @@
+import { AuthHooks, UseSignIn, UseSignOut, UseSignUp } from '@/libs/hooks/auth'
 import { getUser } from '@/libs/services/auth'
 import { User } from '@/typings'
+import { useRouter } from 'expo-router'
+import { onAuthStateChanged } from 'firebase/auth'
 import {
     createContext,
     PropsWithChildren,
@@ -9,10 +12,7 @@ import {
     useMemo,
     useState,
 } from 'react'
-import { AuthHooks, UseSignIn, UseSignOut, UseSignUp } from '@/libs/hooks/auth'
-import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../configs/firebase'
-import { useRouter } from 'expo-router'
 
 type TAuthContext = {
     user: User | null
@@ -20,7 +20,7 @@ type TAuthContext = {
     signIn: UseSignIn['signIn']
     signUp: UseSignUp['signUp']
     signOut: UseSignOut['signOut']
-    updateUser: (userId: string) => Promise<void>
+    updateUserData: (userId: string) => Promise<void>
     isSigningIn: boolean
     isSigningUp: boolean
     isSigningOut: boolean
@@ -36,7 +36,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
     const router = useRouter()
 
-    const updateUser = useCallback(async (uid: string) => {
+    const updateUserData = useCallback(async (uid: string) => {
         try {
             const user = await getUser(uid)
             setUser(user)
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     useEffect(() => {
         const subscription = onAuthStateChanged(auth, async user => {
             if (user) {
-                await updateUser(user.uid)
+                await updateUserData(user.uid)
                 router.replace('/(tabs)')
             } else {
                 setUser(null)
@@ -57,7 +57,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
         })
 
         return () => subscription()
-    }, [updateUser])
+    }, [updateUserData])
 
     const contextValues: TAuthContext = useMemo(
         () => ({
@@ -66,12 +66,12 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
             signIn,
             signUp,
             signOut,
-            updateUser,
+            updateUserData,
             isSigningIn,
             isSigningUp,
             isSigningOut,
         }),
-        [user, updateUser, isSigningIn, isSigningUp, isSigningOut],
+        [user, updateUserData, isSigningIn, isSigningUp, isSigningOut],
     )
 
     return (

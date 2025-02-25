@@ -23,6 +23,7 @@ export const colors = {
     neutral800: '#262626',
     neutral900: '#171717',
     background: '#171717',
+    overlay: '#00000090',
 }
 
 export const spacing = {

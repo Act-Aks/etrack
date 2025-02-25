@@ -1,4 +1,4 @@
-import { verticalScale } from '@/libs/utils/styling'
+import { scale, verticalScale } from '@/libs/utils/styling'
 import { StyleSheet } from 'react-native-unistyles'
 
 export const rootStyles = StyleSheet.create({
@@ -126,15 +126,15 @@ export const profileStyles = StyleSheet.create(theme => ({
         gap: verticalScale(4),
         alignItems: 'center',
     },
-    listIcon: {
+    listIcon: bgColor => ({
         height: verticalScale(44),
         width: verticalScale(44),
-        backgroundColor: theme.colors.neutral500,
+        backgroundColor: bgColor || theme.colors.neutral500,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: theme.radius.r15,
         borderCurve: 'continuous',
-    },
+    }),
     listItem: {
         marginBottom: verticalScale(17),
     },
@@ -144,6 +144,85 @@ export const profileStyles = StyleSheet.create(theme => ({
     flexRow: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
         gap: theme.spacing.x10,
+    },
+    optionText: {
+        flex: 1,
+    },
+    logoutDialogContainer: {
+        gap: theme.spacing.y15,
+    },
+    logoutDialogTextContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: theme.spacing.x7,
+    },
+    logoutDialogButtonContainer: {
+        flexDirection: 'row',
+        gap: theme.spacing.x12,
+    },
+    logoutButton: {
+        flex: 1,
+        backgroundColor: theme.colors.rose,
+    },
+    cancelButton: {
+        flex: 1,
+        backgroundColor: theme.colors.overlay,
+    },
+}))
+
+export const profileModalStyles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        justifyContent: 'space-between',
+        paddingHorizontal: theme.spacing.x20,
+    },
+    footer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: scale(12),
+        paddingHorizontal: theme.spacing.x20,
+        paddingTop: theme.spacing.y15,
+        borderTopColor: theme.colors.neutral700,
+        marginBottom: theme.spacing.y5,
+        borderTopWidth: 1,
+    },
+    button: {
+        flex: 1,
+    },
+    form: {
+        gap: theme.spacing.y30,
+        marginTop: theme.spacing.y15,
+    },
+    avatarContainer: {
+        position: 'relative',
+        alignSelf: 'center',
+    },
+    avatar: {
+        height: verticalScale(130),
+        aspectRatio: 1,
+        borderRadius: 200,
+        backgroundColor: theme.colors.neutral300,
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: theme.colors.neutral500,
+    },
+    editIcon: {
+        position: 'absolute',
+        bottom: theme.spacing.y5,
+        right: theme.spacing.y7,
+        borderRadius: theme.radius.r30,
+        backgroundColor: theme.colors.neutral100,
+        shadowColor: theme.colors.black,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
+        elevation: 5,
+        padding: theme.spacing.y7,
+    },
+    inputContainer: {
+        gap: theme.spacing.y10,
     },
 }))

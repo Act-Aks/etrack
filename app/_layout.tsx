@@ -1,10 +1,10 @@
 import { AuthProvider } from '@/libs/contexts/AuthContext'
 import { QueryProvider } from '@/libs/providers/QueryProvider'
-import { Stack } from 'expo-router'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { rootStyles } from '@/libs/styles'
 import { Toasts } from '@backpackapp-io/react-native-toast'
+import { Stack } from 'expo-router'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const RootLayout: React.FC = () => {
     return (
@@ -12,7 +12,12 @@ const RootLayout: React.FC = () => {
             <GestureHandlerRootView style={rootStyles.root}>
                 <QueryProvider>
                     <AuthProvider>
-                        <Stack screenOptions={{ headerShown: false }} />
+                        <Stack screenOptions={{ headerShown: false }}>
+                            <Stack.Screen
+                                name={'(modals)/profile-modal'}
+                                options={{ presentation: 'modal' }}
+                            />
+                        </Stack>
                         <Toasts />
                     </AuthProvider>
                 </QueryProvider>

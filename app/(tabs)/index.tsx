@@ -1,6 +1,5 @@
 import { BaseButton, BaseText, Header, ScreenWrapper } from '@/libs/components'
 import { useAuth } from '@/libs/contexts/AuthContext'
-import { View } from 'react-native'
 
 const Home: React.FC = () => {
     const { signOut, isSigningOut, user } = useAuth()

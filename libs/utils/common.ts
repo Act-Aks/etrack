@@ -68,7 +68,7 @@ export const getYearsRange = (startYear: number, endYear: number): any => {
     return result.reverse()
 }
 
-export const getImage = async (file: any) => {
+export const getImage = (file: any) => {
     if (file && typeof file === 'string') {
         return file
     }

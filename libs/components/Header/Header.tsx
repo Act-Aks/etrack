@@ -24,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({
             {rightIcon && (
                 <View style={headerStyles.rightIcon}>{rightIcon}</View>
             )}
+            {leftIcon && !rightIcon && <View style={headerStyles.emptyView} />}
         </View>
     )
 }

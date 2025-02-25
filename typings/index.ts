@@ -1,13 +1,8 @@
-import { Firestore, Timestamp } from 'firebase/firestore'
+import { colors } from '@/libs/constants/theme'
+import { Timestamp } from 'firebase/firestore'
 import { Icon } from 'phosphor-react-native'
-import React, { ReactNode } from 'react'
-import { TextInput, TextInputProps, TextStyle, ViewStyle } from 'react-native'
-
-export type ModalWrapperProps = {
-    style?: ViewStyle
-    children: React.ReactNode
-    bg?: string
-}
+import React from 'react'
+import { ViewStyle } from 'react-native'
 
 export type AccountOption = {
     title: string
@@ -15,6 +10,8 @@ export type AccountOption = {
     bgColor: string
     routeName?: any
 }
+
+export type ThemeColor = keyof typeof colors
 
 export type User = {
     uid?: string

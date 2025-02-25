@@ -1,11 +1,11 @@
 import { auth, firestore } from '@/libs/configs/firebase'
-import { User } from '@/typings'
+import { User, UserDataType } from '@/typings'
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
 } from 'firebase/auth'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 
 type SignInParams = {
     email: string
@@ -14,6 +14,11 @@ type SignInParams = {
 
 type SignUpParams = SignInParams & {
     name: string
+}
+
+type UpdateUserParams = {
+    userId: string
+    userData: UserDataType
 }
 
 export const login = async ({ email, password }: SignInParams) => {
@@ -75,5 +80,14 @@ export const getUser = async (userId: string): Promise<User> => {
         }
     } catch (error: any) {
         throw new Error(error?.message || 'Failed to get user')
+    }
+}
+
+export const updateUser = async ({ userId, userData }: UpdateUserParams) => {
+    try {
+        const userDocRef = doc(firestore, 'users', userId)
+        await updateDoc(userDocRef, userData)
+    } catch (error: any) {
+        throw new Error(error?.message || 'Failed to update user')
     }
 }
