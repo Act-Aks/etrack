@@ -18,6 +18,7 @@ import { useRouter } from 'expo-router'
 import { Pencil } from 'phosphor-react-native'
 import { useEffect, useState } from 'react'
 import { ScrollView, TouchableOpacity, View } from 'react-native'
+import * as ImagePicker from 'expo-image-picker'
 
 const ProfileModal: React.FC = () => {
     const router = useRouter()
@@ -50,6 +51,21 @@ const ProfileModal: React.FC = () => {
         router.back()
     }
 
+    const handleImagePicker = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ['images'],
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 0.5,
+        })
+
+        if (!result.canceled) {
+            setUserData(prev => ({ ...prev, image: result.assets[0] }))
+        } else {
+            alert('You did not select any image.')
+        }
+    }
+
     return (
         <ModalWrapper>
             <View style={profileModalStyles.container}>
@@ -62,7 +78,10 @@ const ProfileModal: React.FC = () => {
                             contentFit={'cover'}
                             transition={100}
                         />
-                        <TouchableOpacity style={profileModalStyles.editIcon}>
+                        <TouchableOpacity
+                            onPress={handleImagePicker}
+                            style={profileModalStyles.editIcon}
+                        >
                             <Pencil
                                 size={verticalScale(20)}
                                 color={colors.neutral800}
