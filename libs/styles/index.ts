@@ -109,6 +109,17 @@ export const profileStyles = StyleSheet.create(theme => ({
         width: verticalScale(120),
         borderRadius: 200,
     },
+    avatarName: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        textAlign: 'center',
+        fontWeight: '900',
+        fontSize: verticalScale(100),
+        color: theme.colors.black,
+    },
     editIcon: {
         position: 'absolute',
         bottom: 5,
@@ -224,5 +235,40 @@ export const profileModalStyles = StyleSheet.create(theme => ({
     },
     inputContainer: {
         gap: theme.spacing.y10,
+    },
+}))
+
+export const walletStyles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        backgroundColor: theme.colors.black,
+    },
+    contents: {
+        flex: 1,
+        justifyContent: 'space-between',
+    },
+    balance: {
+        height: verticalScale(160),
+        backgroundColor: theme.colors.black,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    flexRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: theme.spacing.y10,
+    },
+    wallets: {
+        flex: 1,
+        backgroundColor: theme.colors.neutral900,
+        borderTopRightRadius: theme.radius.r30,
+        borderTopLeftRadius: theme.radius.r30,
+        padding: theme.spacing.x20,
+        paddingTop: theme.spacing.x25,
+    },
+    listStyle: {
+        paddingBottom: theme.spacing.y25,
+        paddingTop: theme.spacing.y15,
     },
 }))

@@ -52,7 +52,7 @@ const ProfileModal: React.FC = () => {
     }
 
     const handleImagePicker = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
+        const result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ['images'],
             allowsEditing: true,
             aspect: [4, 3],

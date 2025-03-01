@@ -79,3 +79,15 @@ export const getImage = (file: any) => {
 
     return require('@/assets/images/defaultAvatar.png')
 }
+
+export const getFilePath = (file: any) => {
+    if (file && typeof file === 'string') {
+        return file
+    }
+
+    if (file && typeof file === 'object' && file.hasOwnProperty('uri')) {
+        return file.uri
+    }
+
+    return null
+}

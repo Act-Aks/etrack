@@ -71,15 +71,6 @@ export type TransactionItemProps = {
     handleClick: Function
 }
 
-export type ImageUploadProps = {
-    file?: any
-    onSelect: (file: any) => void
-    onClear: () => void
-    containerStyle?: ViewStyle
-    imageStyle?: ViewStyle
-    placeholder?: string
-}
-
 export type UserDataType = {
     name: string
     image?: any

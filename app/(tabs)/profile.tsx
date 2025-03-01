@@ -22,7 +22,7 @@ const accountOptions: AccountOption[] = [
     {
         title: AccountOptionType.EDIT_PROFILE,
         icon: <Icons.User size={26} color={colors.white} weight={'fill'} />,
-        routeName: '(modals)/profile-modal',
+        routeName: '/(modals)/profile-modal',
         bgColor: '#6366F1',
     },
     {
@@ -60,13 +60,16 @@ const Profile: React.FC = () => {
         <ScreenWrapper style={profileStyles.container}>
             <Header title={'Profile'} />
             <View style={profileStyles.userInfo}>
-                <View>
+                <View style={profileStyles.avatar}>
                     <Image
                         source={getImage(user?.image)}
                         style={profileStyles.avatar}
                         contentFit={'cover'}
                         transition={100}
                     />
+                    <BaseText style={profileStyles.avatarName}>
+                        {user?.name?.charAt(0).toUpperCase()}
+                    </BaseText>
                 </View>
 
                 <View style={profileStyles.nameConatiner}>
@@ -79,8 +82,8 @@ const Profile: React.FC = () => {
                 </View>
             </View>
 
-            <View style={profileStyles.accountOptions}>
-                <Dialog>
+            <Dialog>
+                <View style={profileStyles.accountOptions}>
                     {accountOptions.map((option, index) => (
                         <Animated.View
                             key={option.title}
@@ -163,8 +166,8 @@ const Profile: React.FC = () => {
                             </View>
                         </View>
                     </Dialog.Content>
-                </Dialog>
-            </View>
+                </View>
+            </Dialog>
         </ScreenWrapper>
     )
 }

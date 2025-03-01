@@ -38,17 +38,13 @@ const Dialog: DialogComponent = ({ children }) => {
     const [openedDialogName, setOpenedDialogName] = useState('')
 
     const closeDialog = useCallback(() => setOpenedDialogName(''), [])
-    const openDialog = useCallback(
-        (name: string) => setOpenedDialogName(name),
-        [setOpenedDialogName],
-    )
     const contextValues = useMemo(
         () => ({
             openedDialogName,
             closeDialog,
-            openDialog,
+            openDialog: setOpenedDialogName,
         }),
-        [openedDialogName],
+        [openedDialogName, closeDialog],
     )
 
     return (
@@ -83,7 +79,7 @@ const DialogContent: React.FC<DialogContentProps> = ({
 }) => {
     const { openedDialogName, closeDialog } = useDialog()
 
-    if (name !== openedDialogName) {
+    if (!name || name !== openedDialogName) {
         return null
     }
 
