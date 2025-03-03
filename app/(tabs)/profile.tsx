@@ -67,9 +67,9 @@ const Profile: React.FC = () => {
                         contentFit={'cover'}
                         transition={100}
                     />
-                    <BaseText style={profileStyles.avatarName}>
+                    {/* <BaseText style={profileStyles.avatarName}>
                         {user?.name?.charAt(0).toUpperCase()}
-                    </BaseText>
+                    </BaseText> */}
                 </View>
 
                 <View style={profileStyles.nameConatiner}>

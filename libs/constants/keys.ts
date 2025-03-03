@@ -5,5 +5,6 @@ export const Keys = {
         SIGN_UP: 'SignUp',
         SIGN_OUT: 'SignOut',
         UPDATE_USER: 'UpdateUser',
+        WALLET: 'Wallet',
     },
 }

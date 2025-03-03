@@ -6,6 +6,7 @@ import {
     signOut,
 } from 'firebase/auth'
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
+import { uploadToCloudinary } from '../image'
 
 type SignInParams = {
     email: string
@@ -85,6 +86,16 @@ export const getUser = async (userId: string): Promise<User> => {
 
 export const updateUser = async ({ userId, userData }: UpdateUserParams) => {
     try {
+        if (userData?.image && userData.image?.uri) {
+            const imageUploaded = await uploadToCloudinary({
+                file: userData.image,
+                folderName: 'users',
+            })
+            if (!imageUploaded.success) {
+                throw new Error('Failed to upload image')
+            }
+            userData.image = imageUploaded.data
+        }
         const userDocRef = doc(firestore, 'users', userId)
         await updateDoc(userDocRef, userData)
     } catch (error: any) {

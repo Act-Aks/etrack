@@ -7,41 +7,42 @@ import {
     Input,
     ModalWrapper,
 } from '@/libs/components'
-import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
-import { AuthHooks } from '@/libs/hooks/auth'
+import { WalletHooks } from '@/libs/hooks/wallet'
 import { profileModalStyles } from '@/libs/styles'
-import { getImage } from '@/libs/utils/common'
-import { verticalScale } from '@/libs/utils/styling'
-import { UserDataType, WalletType } from '@/typings'
-import { Image } from 'expo-image'
-import { useRouter } from 'expo-router'
-import { Pencil } from 'phosphor-react-native'
-import { useEffect, useState } from 'react'
-import { ScrollView, TouchableOpacity, View } from 'react-native'
+import { Toast } from '@/libs/utils/misc'
+import { WalletType } from '@/typings'
 import * as ImagePicker from 'expo-image-picker'
+import { useRouter } from 'expo-router'
+import { useState } from 'react'
+import { ScrollView, View } from 'react-native'
 
 const WalletModal: React.FC = () => {
     const router = useRouter()
     const { user, updateUserData } = useAuth()
-    const { updateUser, isLoading } = AuthHooks.useUpdateUser()
     const [wallet, setWallet] = useState<WalletType>({
         name: '',
         image: null,
     })
+    const { modifyWallet, isLoading } = WalletHooks.useWallet()
 
     const isSubmitDisabled = wallet.name === user?.name
 
     const onSubmit = async () => {
         const userId = user?.uid
         const { name, image } = wallet
-        if (!name.trim() || !userId) {
-            return
+        if (!name.trim()) {
+            return Toast.enqueueError('Please enter a valid wallet name')
         }
 
+        const walletData: WalletType = {
+            name,
+            image,
+            uid: userId,
+        }
+        await modifyWallet(walletData)
         router.back()
     }
-
     const onSelect = (image: ImagePicker.ImagePickerAsset) => {
         setWallet(prev => ({ ...prev, image }))
     }

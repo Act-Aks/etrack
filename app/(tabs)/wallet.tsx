@@ -1,5 +1,7 @@
-import { BaseText, ScreenWrapper } from '@/libs/components'
+import { BaseText, ScreenWrapper, Skeleton } from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
+import { useAuth } from '@/libs/contexts/AuthContext'
+import { WalletHooks } from '@/libs/hooks/wallet'
 import { walletStyles } from '@/libs/styles'
 import { formatCurrency } from '@/libs/utils/misc'
 import { verticalScale } from '@/libs/utils/styling'
@@ -9,6 +11,11 @@ import { TouchableOpacity, View } from 'react-native'
 
 const Wallet: React.FC = () => {
     const router = useRouter()
+    const { user } = useAuth()
+    const { wallets, error, isLoading } = WalletHooks.useGetWallets(
+        user?.uid || '',
+    )
+
     const handleAddWallet = () => {
         return router.push('/(modals)/wallet-modal')
     }
@@ -40,6 +47,19 @@ const Wallet: React.FC = () => {
                             />
                         </TouchableOpacity>
                     </View>
+                    {isLoading && (
+                        <View style={walletStyles.skeletonContainer}>
+                            {Array.from(
+                                { length: 3 },
+                                (_, index) => index + 1,
+                            ).map(num => (
+                                <View key={num} style={walletStyles.item}>
+                                    <Skeleton height={24} width={'30%'} />
+                                    <Skeleton height={40} />
+                                </View>
+                            ))}
+                        </View>
+                    )}
                 </View>
             </View>
         </ScreenWrapper>

@@ -271,4 +271,12 @@ export const walletStyles = StyleSheet.create(theme => ({
         paddingBottom: theme.spacing.y25,
         paddingTop: theme.spacing.y15,
     },
+    skeletonContainer: {
+        flex: 1,
+        backgroundColor: theme.colors.neutral900,
+        gap: theme.spacing.y20,
+    },
+    item: {
+        gap: theme.spacing.y5,
+    },
 }))

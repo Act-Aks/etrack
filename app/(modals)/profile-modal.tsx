@@ -29,7 +29,8 @@ const ProfileModal: React.FC = () => {
         image: null,
     })
 
-    const isSubmitDisabled = userData.name === user?.name
+    const isSubmitDisabled =
+        userData.name === user?.name && userData.image === user?.image
 
     useEffect(() => {
         setUserData({
@@ -40,7 +41,7 @@ const ProfileModal: React.FC = () => {
 
     const onSubmit = async () => {
         const userId = user?.uid
-        const { name, image } = userData
+        const { name } = userData
         if (!name.trim() || !userId) {
             return
         }
@@ -61,8 +62,6 @@ const ProfileModal: React.FC = () => {
 
         if (!result.canceled) {
             setUserData(prev => ({ ...prev, image: result.assets[0] }))
-        } else {
-            alert('You did not select any image.')
         }
     }
 
