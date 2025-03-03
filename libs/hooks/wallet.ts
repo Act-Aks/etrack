@@ -1,5 +1,5 @@
 import { WalletType } from '@/typings'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { orderBy, where } from 'firebase/firestore'
 import { CollectionNames } from '../constants/collection'
 import { Keys } from '../constants/keys'
@@ -8,6 +8,7 @@ import { Toast } from '../utils/misc'
 import { useCustomQuery } from './useCustomQuery'
 
 const useWallet = () => {
+    const queryClient = useQueryClient()
     const {
         mutateAsync: modifyWallet,
         isPending,
@@ -17,6 +18,9 @@ const useWallet = () => {
         mutationKey: [Keys.MUTATION.WALLET],
         onSuccess: Toast.enqueueSuccess('Wallet updated successfully'),
         onError: Toast.enqueueError,
+        onSettled: () => {
+            queryClient.invalidateQueries({ queryKey: [Keys.QUERY.WALLETS] })
+        },
     })
 
     return {

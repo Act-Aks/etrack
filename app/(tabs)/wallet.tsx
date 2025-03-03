@@ -1,13 +1,19 @@
-import { BaseText, ScreenWrapper, Skeleton } from '@/libs/components'
+import {
+    BaseText,
+    ScreenWrapper,
+    Skeleton,
+    WalletItem,
+} from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
 import { WalletHooks } from '@/libs/hooks/wallet'
 import { walletStyles } from '@/libs/styles'
 import { formatCurrency } from '@/libs/utils/misc'
 import { verticalScale } from '@/libs/utils/styling'
+import { WalletType } from '@/typings'
 import { useRouter } from 'expo-router'
 import { PlusCircle } from 'phosphor-react-native'
-import { TouchableOpacity, View } from 'react-native'
+import { FlatList, FlatListProps, TouchableOpacity, View } from 'react-native'
 
 const Wallet: React.FC = () => {
     const router = useRouter()
@@ -16,17 +22,34 @@ const Wallet: React.FC = () => {
         user?.uid || '',
     )
 
+    const totalBalance =
+        wallets?.reduce((acc, { amount = 0 }) => acc + amount, 0) || 0
+
     const handleAddWallet = () => {
         return router.push('/(modals)/wallet-modal')
+    }
+
+    const renderWalletItem: FlatListProps<WalletType>['renderItem'] = ({
+        item,
+        index,
+    }: any) => {
+        return (
+            <WalletItem
+                key={item.id}
+                item={item}
+                index={index}
+                router={router}
+            />
+        )
     }
 
     return (
         <ScreenWrapper style={walletStyles.container}>
             <View style={walletStyles.contents}>
                 <View style={walletStyles.balance}>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={walletStyles.alignCenter}>
                         <BaseText size={45} fontWeight={'500'}>
-                            {formatCurrency(0)}
+                            {formatCurrency(totalBalance)}
                         </BaseText>
                         <BaseText size={16} color={'neutral300'}>
                             Total Balance
@@ -60,6 +83,11 @@ const Wallet: React.FC = () => {
                             ))}
                         </View>
                     )}
+                    <FlatList
+                        data={wallets}
+                        renderItem={renderWalletItem}
+                        contentContainerStyle={walletStyles.listStyle}
+                    />
                 </View>
             </View>
         </ScreenWrapper>

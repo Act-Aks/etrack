@@ -1,7 +1,7 @@
-import { WalletType } from '@/typings'
-import { uploadToCloudinary } from '../image'
-import { collection, doc, setDoc } from 'firebase/firestore'
 import { firestore } from '@/libs/configs/firebase'
+import { WalletType } from '@/typings'
+import { collection, doc, setDoc } from 'firebase/firestore'
+import { uploadToCloudinary } from '../image'
 
 type WalletInput = Partial<WalletType>
 

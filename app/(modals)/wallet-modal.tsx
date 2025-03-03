@@ -13,16 +13,25 @@ import { profileModalStyles } from '@/libs/styles'
 import { Toast } from '@/libs/utils/misc'
 import { WalletType } from '@/typings'
 import * as ImagePicker from 'expo-image-picker'
-import { useRouter } from 'expo-router'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { useState } from 'react'
 import { ScrollView, View } from 'react-native'
 
+type WalletModalParams =
+    | {
+          id: string
+          name: string
+          image: any
+      }
+    | Record<string, any>
+
 const WalletModal: React.FC = () => {
+    const walletToEdit = useLocalSearchParams<WalletModalParams>()
     const router = useRouter()
-    const { user, updateUserData } = useAuth()
+    const { user } = useAuth()
     const [wallet, setWallet] = useState<WalletType>({
-        name: '',
-        image: null,
+        name: walletToEdit.name || '',
+        image: walletToEdit.image || null,
     })
     const { modifyWallet, isLoading } = WalletHooks.useWallet()
 
@@ -40,6 +49,9 @@ const WalletModal: React.FC = () => {
             image,
             uid: userId,
         }
+        if (walletToEdit?.id) {
+            walletData.id = walletToEdit.id
+        }
         await modifyWallet(walletData)
         router.back()
     }
@@ -53,7 +65,10 @@ const WalletModal: React.FC = () => {
     return (
         <ModalWrapper>
             <View style={profileModalStyles.container}>
-                <Header title={'New Wallet'} leftIcon={<BackButton />} />
+                <Header
+                    title={walletToEdit?.id ? 'Update Wallet' : 'New Wallet'}
+                    leftIcon={<BackButton />}
+                />
                 <ScrollView contentContainerStyle={profileModalStyles.form}>
                     <View style={profileModalStyles.inputContainer}>
                         <BaseText color={'neutral200'}>Wallet Name</BaseText>
@@ -84,7 +99,7 @@ const WalletModal: React.FC = () => {
                     disabled={isSubmitDisabled}
                 >
                     <BaseText fontWeight={'700'} size={18} color={'black'}>
-                        Add Wallet
+                        {walletToEdit?.id ? 'Update wallet' : 'Add wallet'}
                     </BaseText>
                 </BaseButton>
             </View>

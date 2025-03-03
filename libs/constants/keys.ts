@@ -1,5 +1,9 @@
+import { CollectionNames } from './collection'
+
 export const Keys = {
-    QUERY: {},
+    QUERY: {
+        WALLETS: CollectionNames.WALLETS,
+    },
     MUTATION: {
         SIGN_IN: 'SignIn',
         SIGN_UP: 'SignUp',

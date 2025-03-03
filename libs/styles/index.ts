@@ -253,6 +253,9 @@ export const walletStyles = StyleSheet.create(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    alignCenter: {
+        alignItems: 'center',
+    },
     flexRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
