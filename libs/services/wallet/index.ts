@@ -1,6 +1,6 @@
 import { firestore } from '@/libs/configs/firebase'
 import { WalletType } from '@/typings'
-import { collection, doc, setDoc } from 'firebase/firestore'
+import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { uploadToCloudinary } from '../image'
 
 type WalletInput = Partial<WalletType>
@@ -38,5 +38,15 @@ export const createOrUpdateWallet = async (input: WalletInput) => {
         }
     } catch (error: any) {
         throw new Error(error?.message || 'Failed to create or update wallet')
+    }
+}
+
+export const deleteWallet = async (walletId: string) => {
+    try {
+        const walletDocRef = doc(firestore, 'wallets', walletId)
+        await deleteDoc(walletDocRef)
+        /* TODO: Delete related transactions */
+    } catch (error: any) {
+        throw new Error(error?.message || 'Failed to delete wallet')
     }
 }

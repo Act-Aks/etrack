@@ -40,7 +40,6 @@ const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
                 <View style={confirmationDialogStyles.buttonContainer}>
                     <Dialog.Close
                         onPress={onCancel}
-                        loading={loading}
                         style={confirmationDialogStyles.secondaryButton}
                     >
                         <BaseText>{secondaryButtonTitle}</BaseText>

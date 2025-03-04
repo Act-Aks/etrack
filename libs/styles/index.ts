@@ -188,6 +188,7 @@ export const modalStyles = StyleSheet.create(theme => ({
         flex: 1,
         justifyContent: 'space-between',
         paddingHorizontal: theme.spacing.x20,
+        backgroundColor: theme.colors.neutral800,
     },
     footer: {
         flexDirection: 'row',
@@ -241,7 +242,7 @@ export const modalStyles = StyleSheet.create(theme => ({
         gap: theme.spacing.y10,
     },
     dialog: {
-        marginHorizontal: theme.spacing.x10,
+        marginHorizontal: theme.spacing.x12,
     },
 }))
 

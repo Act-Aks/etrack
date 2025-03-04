@@ -1,3 +1,4 @@
+import { colors } from '@/libs/constants/theme'
 import { AuthProvider } from '@/libs/contexts/AuthContext'
 import { QueryProvider } from '@/libs/providers/QueryProvider'
 import { rootStyles } from '@/libs/styles'
@@ -19,7 +20,12 @@ const RootLayout: React.FC = () => {
                             />
                             <Stack.Screen
                                 name={'(modals)/wallet-modal'}
-                                options={{ presentation: 'modal' }}
+                                options={{
+                                    presentation: 'modal',
+                                    contentStyle: {
+                                        backgroundColor: colors.neutral800,
+                                    },
+                                }}
                             />
                         </Stack>
                         <Toasts />

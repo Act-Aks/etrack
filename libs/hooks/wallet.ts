@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { orderBy, where } from 'firebase/firestore'
 import { CollectionNames } from '../constants/collection'
 import { Keys } from '../constants/keys'
-import { createOrUpdateWallet } from '../services/wallet'
+import { createOrUpdateWallet, deleteWallet } from '../services/wallet'
 import { Toast } from '../utils/misc'
 import { useCustomQuery } from './useCustomQuery'
 
@@ -43,10 +43,31 @@ const useGetWallets = (userId: string) => {
     }
 }
 
+const useDeleteWallet = () => {
+    const queryClient = useQueryClient()
+    const { mutateAsync, isPending, error } = useMutation({
+        mutationFn: deleteWallet,
+        mutationKey: [Keys.MUTATION.DELETE_WALLET],
+        onSuccess: Toast.enqueueSuccess('Wallet deleted successfully'),
+        onError: Toast.enqueueError,
+        onSettled: () => {
+            queryClient.invalidateQueries({ queryKey: [Keys.QUERY.WALLETS] })
+        },
+    })
+
+    return {
+        deleteWallet: mutateAsync,
+        isLoading: isPending,
+        error,
+    }
+}
+
 export type UseWallet = ReturnType<typeof useWallet>
 export type UseGetWallets = ReturnType<typeof useGetWallets>
+export type UseDeleteWallet = ReturnType<typeof useDeleteWallet>
 
 export const WalletHooks = {
     useWallet,
     useGetWallets,
+    useDeleteWallet,
 }

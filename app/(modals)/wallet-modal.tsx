@@ -38,7 +38,9 @@ const WalletModal: React.FC = () => {
         name: walletToEdit.name || '',
         image: walletToEdit.image || null,
     })
-    const { modifyWallet, isLoading } = WalletHooks.useWallet()
+    const { modifyWallet, isLoading: isModifying } = WalletHooks.useWallet()
+    const { deleteWallet, isLoading: isDeleting } =
+        WalletHooks.useDeleteWallet()
 
     const isSubmitDisabled = wallet.name === user?.name
 
@@ -65,6 +67,13 @@ const WalletModal: React.FC = () => {
     }
     const onClear = () => {
         setWallet(prev => ({ ...prev, image: null }))
+    }
+    const handleDelete = async () => {
+        if (!walletToEdit?.id) {
+            return
+        }
+        await deleteWallet(walletToEdit.id)
+        router.back()
     }
 
     return (
@@ -117,18 +126,20 @@ const WalletModal: React.FC = () => {
                         name={'delete'}
                         title={'Confirm'}
                         description={
-                            'Are you sure you want to delete this wallet?'
+                            'Are you sure you want to delete?\nThis will delete all associated transactions with this wallet.'
                         }
                         primaryButtonTitle={'Delete'}
                         secondaryButtonTitle={'Cancel'}
+                        onConfirm={handleDelete}
                         style={modalStyles.dialog}
+                        loading={isDeleting}
                     />
                 </Dialog>
 
                 <BaseButton
                     onPress={onSubmit}
                     style={modalStyles.button}
-                    loading={isLoading}
+                    loading={isModifying}
                     disabled={isSubmitDisabled}
                 >
                     <BaseText fontWeight={'700'} size={18} color={'black'}>
