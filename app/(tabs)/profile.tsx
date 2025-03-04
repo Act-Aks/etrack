@@ -1,4 +1,10 @@
-import { BaseText, Dialog, Header, ScreenWrapper } from '@/libs/components'
+import {
+    BaseText,
+    ConfirmationDialog,
+    Dialog,
+    Header,
+    ScreenWrapper,
+} from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
 import { profileStyles } from '@/libs/styles'
@@ -130,42 +136,15 @@ const Profile: React.FC = () => {
                         </Animated.View>
                     ))}
 
-                    <Dialog.Content name={AccountOptionType.LOGOUT}>
-                        <View style={profileStyles.logoutDialogContainer}>
-                            <View
-                                style={profileStyles.logoutDialogTextContainer}
-                            >
-                                <BaseText
-                                    size={24}
-                                    fontWeight={'700'}
-                                    color={'rose'}
-                                >
-                                    Confirm
-                                </BaseText>
-                                <BaseText size={16}>
-                                    Are you sure you want to logout?
-                                </BaseText>
-                            </View>
-                            <View
-                                style={
-                                    profileStyles.logoutDialogButtonContainer
-                                }
-                            >
-                                <Dialog.Close
-                                    style={profileStyles.cancelButton}
-                                >
-                                    <BaseText>Cancel</BaseText>
-                                </Dialog.Close>
-                                <Dialog.Close
-                                    onPress={handleLogout}
-                                    loading={isSigningOut}
-                                    style={profileStyles.logoutButton}
-                                >
-                                    <BaseText>Logout</BaseText>
-                                </Dialog.Close>
-                            </View>
-                        </View>
-                    </Dialog.Content>
+                    <ConfirmationDialog
+                        name={AccountOptionType.LOGOUT}
+                        title={'Confirm'}
+                        description={'Are you sure you want to logout?'}
+                        primaryButtonTitle={'Logout'}
+                        secondaryButtonTitle={'Cancel'}
+                        onConfirm={handleLogout}
+                        loading={isSigningOut}
+                    />
                 </View>
             </Dialog>
         </ScreenWrapper>

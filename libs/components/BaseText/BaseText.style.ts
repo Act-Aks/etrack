@@ -7,9 +7,11 @@ export const textStyle = StyleSheet.create(theme => ({
         size,
         color,
         fontWeight,
-    }: Pick<BaseTextProps, 'size' | 'color' | 'fontWeight'>) => ({
+        textAlign,
+    }: Pick<BaseTextProps, 'size' | 'color' | 'fontWeight' | 'textAlign'>) => ({
         fontSize: verticalScale(size ?? DEFAULT_TEXT_SIZE),
         color: theme.colors[color ?? 'text'],
         fontWeight: fontWeight ?? '400',
+        textAlign: textAlign ?? 'left',
     }),
 }))

@@ -2,18 +2,23 @@ import {
     BackButton,
     BaseButton,
     BaseText,
+    ConfirmationDialog,
+    Dialog,
     Header,
     ImageUpload,
     Input,
     ModalWrapper,
 } from '@/libs/components'
+import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
 import { WalletHooks } from '@/libs/hooks/wallet'
-import { profileModalStyles } from '@/libs/styles'
+import { modalStyles } from '@/libs/styles'
 import { Toast } from '@/libs/utils/misc'
+import { verticalScale } from '@/libs/utils/styling'
 import { WalletType } from '@/typings'
 import * as ImagePicker from 'expo-image-picker'
 import { useLocalSearchParams, useRouter } from 'expo-router'
+import { Trash } from 'phosphor-react-native'
 import { useState } from 'react'
 import { ScrollView, View } from 'react-native'
 
@@ -64,13 +69,13 @@ const WalletModal: React.FC = () => {
 
     return (
         <ModalWrapper>
-            <View style={profileModalStyles.container}>
+            <View style={modalStyles.container}>
                 <Header
                     title={walletToEdit?.id ? 'Update Wallet' : 'New Wallet'}
                     leftIcon={<BackButton />}
                 />
-                <ScrollView contentContainerStyle={profileModalStyles.form}>
-                    <View style={profileModalStyles.inputContainer}>
+                <ScrollView contentContainerStyle={modalStyles.form}>
+                    <View style={modalStyles.inputContainer}>
                         <BaseText color={'neutral200'}>Wallet Name</BaseText>
                         <Input
                             placeholder={'Salary'}
@@ -80,7 +85,7 @@ const WalletModal: React.FC = () => {
                             }
                         />
                     </View>
-                    <View style={profileModalStyles.inputContainer}>
+                    <View style={modalStyles.inputContainer}>
                         <BaseText color={'neutral200'}>Wallet Icon</BaseText>
                         <ImageUpload
                             placeholder={'Upload image'}
@@ -91,10 +96,38 @@ const WalletModal: React.FC = () => {
                     </View>
                 </ScrollView>
             </View>
-            <View style={profileModalStyles.footer}>
+            <View style={modalStyles.footer}>
+                <Dialog>
+                    <Dialog.Trigger opens={'delete'}>
+                        {walletToEdit?.id && (
+                            <BaseButton
+                                style={modalStyles.deleteButton}
+                                asChild
+                            >
+                                <Trash
+                                    color={colors.white}
+                                    size={verticalScale(24)}
+                                    weight={'bold'}
+                                />
+                            </BaseButton>
+                        )}
+                    </Dialog.Trigger>
+
+                    <ConfirmationDialog
+                        name={'delete'}
+                        title={'Confirm'}
+                        description={
+                            'Are you sure you want to delete this wallet?'
+                        }
+                        primaryButtonTitle={'Delete'}
+                        secondaryButtonTitle={'Cancel'}
+                        style={modalStyles.dialog}
+                    />
+                </Dialog>
+
                 <BaseButton
                     onPress={onSubmit}
-                    style={profileModalStyles.button}
+                    style={modalStyles.button}
                     loading={isLoading}
                     disabled={isSubmitDisabled}
                 >

@@ -183,7 +183,7 @@ export const profileStyles = StyleSheet.create(theme => ({
     },
 }))
 
-export const profileModalStyles = StyleSheet.create(theme => ({
+export const modalStyles = StyleSheet.create(theme => ({
     container: {
         flex: 1,
         justifyContent: 'space-between',
@@ -202,6 +202,10 @@ export const profileModalStyles = StyleSheet.create(theme => ({
     },
     button: {
         flex: 1,
+    },
+    deleteButton: {
+        backgroundColor: theme.colors.rose,
+        paddingHorizontal: theme.spacing.x15,
     },
     form: {
         gap: theme.spacing.y30,
@@ -235,6 +239,9 @@ export const profileModalStyles = StyleSheet.create(theme => ({
     },
     inputContainer: {
         gap: theme.spacing.y10,
+    },
+    dialog: {
+        marginHorizontal: theme.spacing.x10,
     },
 }))
 

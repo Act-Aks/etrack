@@ -9,7 +9,7 @@ import {
 import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
 import { AuthHooks } from '@/libs/hooks/auth'
-import { profileModalStyles } from '@/libs/styles'
+import { modalStyles } from '@/libs/styles'
 import { getImage } from '@/libs/utils/common'
 import { verticalScale } from '@/libs/utils/styling'
 import { UserDataType } from '@/typings'
@@ -67,19 +67,19 @@ const ProfileModal: React.FC = () => {
 
     return (
         <ModalWrapper>
-            <View style={profileModalStyles.container}>
+            <View style={modalStyles.container}>
                 <Header title={'Update Profile'} leftIcon={<BackButton />} />
-                <ScrollView contentContainerStyle={profileModalStyles.form}>
-                    <View style={profileModalStyles.avatarContainer}>
+                <ScrollView contentContainerStyle={modalStyles.form}>
+                    <View style={modalStyles.avatarContainer}>
                         <Image
                             source={getImage(userData.image)}
-                            style={profileModalStyles.avatar}
+                            style={modalStyles.avatar}
                             contentFit={'cover'}
                             transition={100}
                         />
                         <TouchableOpacity
                             onPress={handleImagePicker}
-                            style={profileModalStyles.editIcon}
+                            style={modalStyles.editIcon}
                         >
                             <Pencil
                                 size={verticalScale(20)}
@@ -88,7 +88,7 @@ const ProfileModal: React.FC = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={profileModalStyles.inputContainer}>
+                    <View style={modalStyles.inputContainer}>
                         <BaseText color={'neutral200'}>Name</BaseText>
                         <Input
                             placeholder={'Name'}
@@ -100,10 +100,10 @@ const ProfileModal: React.FC = () => {
                     </View>
                 </ScrollView>
             </View>
-            <View style={profileModalStyles.footer}>
+            <View style={modalStyles.footer}>
                 <BaseButton
                     onPress={onSubmit}
-                    style={profileModalStyles.button}
+                    style={modalStyles.button}
                     loading={isLoading}
                     disabled={isSubmitDisabled}
                 >

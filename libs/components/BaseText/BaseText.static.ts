@@ -8,6 +8,7 @@ export type BaseTextProps = PropsWithChildren<{
     fontWeight?: TextStyle['fontWeight']
     style?: TextStyle
     textProps?: TextProps
+    textAlign?: TextStyle['textAlign']
 }>
 
 export const DEFAULT_TEXT_SIZE = 15
