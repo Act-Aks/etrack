@@ -3063,14 +3063,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@react-native-async-storage/async-storage@npm:2.1.1"
+"@react-native-async-storage/async-storage@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@react-native-async-storage/async-storage@npm:2.1.2"
   dependencies:
     merge-options: "npm:^3.0.4"
   peerDependencies:
     react-native: ^0.0.0-0 || >=0.65 <1.0
-  checksum: 10/ae65d10606e2ba307dc7a4362612c3568fdae3833dae407810c2f457ab1a6ec2c50f2979c8afbf6477b56c8033b8f332038c54e617165618d1b5305e91784300
+  checksum: 10/d4f14fe520a1664935ea771db86be397902b743ae7dd805d7cfe142698bcb9758bfe075fe11f20347cc5551ee0673f15822be3127658957a276ac28e0c8dd5ca
   languageName: node
   linkType: hard
 
@@ -6144,7 +6144,7 @@ __metadata:
     "@babel/core": "npm:^7.26.9"
     "@backpackapp-io/react-native-toast": "npm:^0.13.0"
     "@expo/vector-icons": "npm:^14.0.4"
-    "@react-native-async-storage/async-storage": "npm:2.1.1"
+    "@react-native-async-storage/async-storage": "npm:2.1.2"
     "@react-native/normalize-colors": "npm:^0.78.0"
     "@react-navigation/bottom-tabs": "npm:^7.2.0"
     "@react-navigation/native": "npm:^7.0.14"
