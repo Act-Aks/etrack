@@ -60,7 +60,7 @@
         "react-native-screens": "~4.9.0",
         "react-native-unistyles": "3.0.0-nightly-20250226",
         "react-native-web": "~0.19.13",
-        "react-native-webview": "13.12.5"
+        "react-native-webview": "13.13.2"
     },
     "devDependencies": {
         "@babel/core": "^7.26.9",
