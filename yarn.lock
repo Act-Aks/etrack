@@ -6206,7 +6206,7 @@ __metadata:
     react-native-svg: "npm:^15.11.1"
     react-native-unistyles: "npm:3.0.0-nightly-20250226"
     react-native-web: "npm:~0.19.13"
-    react-native-webview: "npm:13.13.2"
+    react-native-webview: "npm:13.13.4"
     react-test-renderer: "npm:19.0.0"
     typescript: "npm:^5.7.3"
   languageName: unknown
@@ -10874,16 +10874,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-webview@npm:13.13.2":
-  version: 13.13.2
-  resolution: "react-native-webview@npm:13.13.2"
+"react-native-webview@npm:13.13.4":
+  version: 13.13.4
+  resolution: "react-native-webview@npm:13.13.4"
   dependencies:
     escape-string-regexp: "npm:^4.0.0"
     invariant: "npm:2.2.4"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/1e0e7b036910c751ad7ae95da37694a808ad92aff3645e7eee88f7969ed721b18e4c62a436129b1766135b2262d6568198eb83ef1e8cc1e68ca6cd708f6dc33f
+  checksum: 10/68504e2a0610dd6c170c34c9ffe93ab3c78c1c0eb3f726f39bdf199a7e104d9863954c2ed10d579916c136a55373f4541b524c8f88c94487c8b07bb491e5ce0f
   languageName: node
   linkType: hard
 
