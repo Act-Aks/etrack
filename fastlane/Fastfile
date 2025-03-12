@@ -1,0 +1,33 @@
+fastlane_version '2.226.0'
+
+before_all do
+    ensure_git_branch(branch: 'main')
+    ensure_git_status_clean
+    git_pull
+end
+
+# platform :android do
+#     desc 'Build the Android Release application.'
+#     private_lane :release do
+#         gradle(task: 'clean', project_dir: 'android/')
+#         gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
+#     end
+
+#     APK_LOCATION = "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+#     puts "APK location: #{APK_LOCATION}"
+#     end
+# end
+
+platform :android do 
+  desc 'Build the Android Release application.'
+  lane :release do 
+      increment_version_code('app_project_dir': 'andriod/app')
+      gradle(task: 'clean', project_dir: 'andriod/')
+      gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/', properties: {
+        "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
+        "android.injected.signing.store.password" => ENV['ANDROID_KEYSTORE_PASSWORD'],
+        "android.injected.signing.key.alias" => ENV['ANDROID_KEYSTORE_ALIAS'],
+        "android.injected.signing.key.password" => ENV['ANDROID_KEYSTORE_PASSWORD']
+    })
+  end
+end
