@@ -291,3 +291,35 @@ export const walletStyles = StyleSheet.create(theme => ({
         gap: theme.spacing.y5,
     },
 }))
+
+export const homeStyles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        paddingHorizontal: theme.spacing.x20,
+        marginTop: verticalScale(8),
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: theme.spacing.y10,
+    },
+    searchIcon: {
+        backgroundColor: theme.colors.neutral900,
+        padding: theme.spacing.y10,
+        borderRadius: 50,
+    },
+    floatingButton: {
+        position: 'absolute',
+        borderRadius: 100,
+        bottom: verticalScale(30),
+        right: verticalScale(30),
+        width: verticalScale(50),
+        height: verticalScale(50),
+    },
+    scrollViewStyle: {
+        marginTop: theme.spacing.y10,
+        paddingBottom: verticalScale(100),
+        gap: theme.spacing.y25,
+    },
+}))
