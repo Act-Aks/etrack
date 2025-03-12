@@ -21,7 +21,7 @@ end
 platform :android do 
   desc 'Build the Android Release application.'
   lane :release do 
-      increment_version_code('app_project_dir': 'andriod/app')
+      # increment_version_code('app_project_dir': 'andriod/app')
       gradle(task: 'clean', project_dir: 'andriod/')
       gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/', properties: {
         "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
