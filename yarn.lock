@@ -5762,8 +5762,8 @@ __metadata:
   linkType: hard
 
 "eas-cli@npm:^15.0.12":
-  version: 15.0.13
-  resolution: "eas-cli@npm:15.0.13"
+  version: 15.0.15
+  resolution: "eas-cli@npm:15.0.15"
   dependencies:
     "@expo/apple-utils": "npm:2.1.11"
     "@expo/code-signing-certificates": "npm:0.0.5"
@@ -5848,7 +5848,7 @@ __metadata:
     zod: "npm:^3.23.8"
   bin:
     eas: bin/run
-  checksum: 10/bb6a2516671af81304d4418cb260f48c05130432780bb7d10fe1db62a966f609585f79048e9a087f948d0abc24098d64b1a0f2aa8da388387e0a1e992aea8431
+  checksum: 10/d15aea881f34742428eb875af7455342e3bf69be2b770b7d27fda0f010471fbd45e8a4279544f32eb8c5631c7086dc81b0daeeb4532b5509f6fe8d8024c10a34
   languageName: node
   linkType: hard
 
