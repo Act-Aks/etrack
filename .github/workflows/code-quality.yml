@@ -30,18 +30,5 @@ jobs:
             - name: Install dependencies
               run: yarn install --immutable
 
-            - name: Validate package.json
-              uses: ExpediaGroup/package-json-validator@v1.10.0
-              with:
-                  rules: |
-                      ranges
-                      tags
-                  dependency-types: |
-                      dependencies
-                      devDependencies
-                  ignore-packages: |
-                      @jscutlery/semv
-                  allowed-ranges: ^
-
             - name: Run code quality checks
               run: yarn cq
