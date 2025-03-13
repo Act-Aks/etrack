@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Act-Aks/etrack/compare/prod/1.0.2...prod/1.0.3) (2025-03-13)
+
+
+### Bug Fixes
+
+* code quality ci ([40fc079](https://github.com/Act-Aks/etrack/commit/40fc0796427788f25fadd3831c2dd0828eeafec2))
+
 ## [1.0.2](https://github.com/Act-Aks/etrack/compare/prod/1.0.1...prod/1.0.2) (2025-03-13)
 
 
