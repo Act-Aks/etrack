@@ -40,7 +40,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
                 true,
             )
         }
-    }, [animated, delay])
+    }, [animated, delay, opacity, shimmerTranslateX])
 
     const animatedStyles = useAnimatedStyle(() => {
         return {

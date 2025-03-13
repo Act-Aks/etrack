@@ -1,10 +1,4 @@
-import {
-    BaseButton,
-    BaseText,
-    Header,
-    HomeCard,
-    ScreenWrapper,
-} from '@/libs/components'
+import { BaseText, HomeCard, ScreenWrapper } from '@/libs/components'
 import { colors } from '@/libs/constants/theme'
 import { useAuth } from '@/libs/contexts/AuthContext'
 import { homeStyles } from '@/libs/styles'
@@ -13,7 +7,7 @@ import { MagnifyingGlass } from 'phosphor-react-native'
 import { ScrollView, TouchableOpacity, View } from 'react-native'
 
 const Home: React.FC = () => {
-    const { signOut, isSigningOut, user } = useAuth()
+    const { signOut, user } = useAuth()
 
     const handleLogout = async () => {
         await signOut()

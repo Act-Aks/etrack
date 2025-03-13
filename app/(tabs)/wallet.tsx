@@ -18,9 +18,7 @@ import { FlatList, FlatListProps, TouchableOpacity, View } from 'react-native'
 const Wallet: React.FC = () => {
     const router = useRouter()
     const { user } = useAuth()
-    const { wallets, error, isLoading } = WalletHooks.useGetWallets(
-        user?.uid || '',
-    )
+    const { wallets, isLoading } = WalletHooks.useGetWallets(user?.uid || '')
 
     const totalBalance =
         wallets?.reduce((acc, { amount = 0 }) => acc + amount, 0) || 0

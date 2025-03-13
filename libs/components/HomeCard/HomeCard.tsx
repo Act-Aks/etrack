@@ -1,16 +1,11 @@
 import BaseText from '@/libs/components/BaseText/BaseText'
-import { ImageBackground } from 'expo-image'
-import { homeCardStyles } from './HomeCard.style'
-import { View } from 'react-native'
-import {
-    ArrowDown,
-    Basket,
-    DotsThree,
-    DotsThreeOutline,
-} from 'phosphor-react-native'
-import { verticalScale } from '@/libs/utils/styling'
 import { colors } from '@/libs/constants/theme'
 import { formatCurrency } from '@/libs/utils/misc'
+import { verticalScale } from '@/libs/utils/styling'
+import { ImageBackground } from 'expo-image'
+import { ArrowDown, DotsThreeOutline } from 'phosphor-react-native'
+import { View } from 'react-native'
+import { homeCardStyles } from './HomeCard.style'
 
 const HomeCard = () => {
     return (

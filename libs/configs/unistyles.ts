@@ -1,5 +1,5 @@
+import { colors, fontSizes, radius, spacing } from '@/libs/constants/theme'
 import { StyleSheet } from 'react-native-unistyles'
-import { spacing, colors, radius, fontSizes } from '@/libs/constants/theme'
 
 const defaultTheme = {
     colors,
@@ -25,7 +25,9 @@ type AppBreakpoints = typeof breakpoints
 type AppThemes = typeof appThemes
 
 declare module 'react-native-unistyles' {
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     export interface UnistylesThemes extends AppThemes {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     export interface UnistylesBreakpoints extends AppBreakpoints {}
 }
 

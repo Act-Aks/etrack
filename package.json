@@ -23,7 +23,6 @@
         "preinstall": "npx only-allow yarn",
         "upgrade-self": "yarn set version latest && yarn",
         "up:i": "yarn upgrade-interactive",
-        "lint:fix": "eslint . --fix",
         "prepare": "husky",
         "cq": "yarn prettier && yarn lint"
     },
@@ -82,6 +81,8 @@
         "@types/react": "^18.3.12",
         "@types/react-test-renderer": "^19.0.0",
         "eas-cli": "^15.0.15",
+        "eslint": "^8.57.0",
+        "eslint-config-expo": "~8.0.1",
         "jest": "^29.7.0",
         "jest-expo": "^52.0.6",
         "prettier": "^3.5.3",

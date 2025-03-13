@@ -13,7 +13,8 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({
     isFocused,
     ...props
 }) => {
-    const Icon = Icons[icon] as React.FC<IconProps>
+    // eslint-disable-next-line import/namespace
+    const Icon = Icons['Acorn'] as React.FC<IconProps>
     return (
         <Icon
             size={verticalScale(30)}

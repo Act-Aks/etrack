@@ -2,7 +2,6 @@ import { colors } from '@/libs/constants/theme'
 import { Timestamp } from 'firebase/firestore'
 import { Icon } from 'phosphor-react-native'
 import React from 'react'
-import { ViewStyle } from 'react-native'
 
 export type AccountOption = {
     title: string

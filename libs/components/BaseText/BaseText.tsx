@@ -1,5 +1,5 @@
-import { BaseTextProps, DEFAULT_TEXT_SIZE } from './BaseText.static'
 import { Text } from 'react-native'
+import { BaseTextProps } from './BaseText.static'
 import { textStyle } from './BaseText.style'
 
 const BaseText: React.FC<BaseTextProps> = ({

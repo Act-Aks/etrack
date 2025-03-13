@@ -57,7 +57,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
         })
 
         return () => subscription()
-    }, [updateUserData])
+    }, [router, updateUserData])
 
     const contextValues: TAuthContext = useMemo(
         () => ({
@@ -71,7 +71,16 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
             isSigningUp,
             isSigningOut,
         }),
-        [user, updateUserData, isSigningIn, isSigningUp, isSigningOut],
+        [
+            user,
+            signIn,
+            signUp,
+            signOut,
+            updateUserData,
+            isSigningIn,
+            isSigningUp,
+            isSigningOut,
+        ],
     )
 
     return (
