@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Act-Aks/etrack/compare/prod/1.0.3...prod/1.0.4) (2025-03-13)
+
+
+### Bug Fixes
+
+* lint ([921e2dc](https://github.com/Act-Aks/etrack/commit/921e2dc239b1ab7ba49565015712cd61980ae3f3))
+
 ## [1.0.3](https://github.com/Act-Aks/etrack/compare/prod/1.0.2...prod/1.0.3) (2025-03-13)
 
 ### Bug Fixes
