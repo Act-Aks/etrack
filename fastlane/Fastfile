@@ -7,14 +7,69 @@ before_all do
 end
 
 platform :android do
+  desc "Get the release keystore file and set up the keystore.properties"
+  private_lane :get_keystore do
+    # Define the directory path as a variable
+    project_root = File.expand_path("..", Dir.pwd)
+    android_app_dir = File.expand_path("android/app", project_root)
+
+    # Values for the keystore.properties file
+    storeFile = "release.jks"
+    keyAlias = ENV['ANDROID_KEY_ALIAS']
+    storePassword = ENV['ANDROID_STORE_PASSWORD']
+    keyPassword = ENV['ANDROID_KEY_PASSWORD']
+
+    # Ensure the android/app directory exists
+    sh("mkdir -p #{android_app_dir}")
+  
+    # Decode the base64 keystore file and save it in the specified directory
+    sh("echo \"$BASE_64_ANDROID_KEYSTORE_FILE\" | base64 --decode > #{android_app_dir}/release.jks")
+  
+    # Create or update the keystore.properties file in the specified directory
+    File.open("#{android_app_dir}/keystore.properties", "w") do |file|
+      file.puts("storeFile=#{storeFile}")
+      file.puts("keyAlias=#{keyAlias}")
+      file.puts("storePassword=#{storePassword}")
+      file.puts("keyPassword=#{keyPassword}")
+    end
+  
+    UI.message("Keystore and properties file generated successfully in #{android_app_dir}")
+  end
+
+   ######## FIREBASE DISTRIBUTION  ########
+  desc "Distribute the application to Firebase App Distribution"
+  private_lane :distribute do
+    # Define the directory path as a variable
+    project_root = File.expand_path("..", Dir.pwd)
+    android_app_dir = File.expand_path("android/app", project_root)
+
+     # find apk path
+     output_path = "#{android_app_dir}/build/outputs/apk/release"
+     output_json_path = "#{output_path}/output-metadata.json"
+     build_output = load_json(json_path: output_json_path)
+     elements = build_output["elements"][0]
+     apk_path = "#{output_path}/#{elements["outputFile"]}"
+ 
+     release_note_information = " BRANCH => #{git_branch} - developer: #{last_git_commit[:author]}"
+     sh("echo #{release_note_information}} #{apk_path}")
+     release_note = "#{release_note_information}"
+     service_credentials_file = "#{android_app_dir}/google-services.json"
+
+     firebase_app_distribution(
+      app: ENV["EXPO_PUBLIC_FIREBASE_APP_ID"],
+      apk_path: apk_path, 
+      release_notes: "#{release_note}",
+      service_credentials_file: service_credentials_file
+    )
+  end
+
   desc 'Build the Android Release application.'
   lane :release do 
-    gradle(task: "clean", project_dir: "./android/")
-    gradle(task: 'assemble', build_type: 'Release', project_dir: './android/', properties: {
-      "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
-      "android.injected.signing.store.password" => ENV['ANDROID_KEYSTORE_PASSWORD'],
-      "android.injected.signing.key.alias" => ENV['ANDROID_KEYSTORE_ALIAS'],
-      "android.injected.signing.key.password" => ENV['ANDROID_KEYSTORE_PASSWORD']
-    })
+    get_keystore
+    # increment_version_code
+    # distribute
+    gradle(task: "clean", project_dir: "android/")
+    gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
+
   end
 end

@@ -42,5 +42,7 @@ app-example
 
 .env
 *release.keystore
+keystore.properties
 fastlane/*
 !fastlane/Fastfile
+!fastlane/Pluginfile

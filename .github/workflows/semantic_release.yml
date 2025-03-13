@@ -1,0 +1,52 @@
+name: Run Semantic Release
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+    workflow_call:
+        outputs:
+            next-release-version:
+                value: ${{ jobs.release.outputs.next-release-version}}
+
+permissions:
+    contents: write
+    id-token: write
+    issues: write
+    packages: read
+    pull-requests: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        outputs:
+            next-release-version: ${{ steps.semantic_release.outputs.next-release-version }}
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-tags: 'true'
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  always-auth: true
+                  cache: 'yarn'
+                  node-version-file: '.nvmrc'
+
+            - name: Install dependencies
+              run: yarn install --immutable
+
+            - name: Configure Git User
+              run: |
+                  git config --global user.email 'akashsrivastava.git@gmail.com'
+                  git config --global user.name 'Act-Aks'
+
+            - name: Run semantic-release
+              id: semantic_release
+              env:
+                  ENVIRONMENT: 'prod'
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: yarn semantic-release --tag-format '${{ env.ENVIRONMENT }}/${version}'
