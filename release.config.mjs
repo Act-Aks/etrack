@@ -4,10 +4,17 @@
 export default {
     branches: ['main'],
     plugins: [
+        [
+            '@semantic-release/exec',
+            {
+                prepareCmd: './tools/set-version.sh ${nextRelease.version}',
+                successCmd:
+                    "echo 'next-release-version=${nextRelease.version}' >> $GITHUB_OUTPUT",
+            },
+        ],
         '@semantic-release/commit-analyzer',
         '@semantic-release/release-notes-generator',
         '@semantic-release/changelog',
-        'semantic-release-react-native',
         [
             '@semantic-release/git',
             {
