@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Act-Aks/etrack/compare/prod/1.0.1...prod/1.0.2) (2025-03-13)
+
+
+### Bug Fixes
+
+* removed google service json ([4307c94](https://github.com/Act-Aks/etrack/commit/4307c94c524c119e4cea92911e10035b833a63c4))
+
 ## [1.0.1](https://github.com/Act-Aks/etrack/compare/prod/1.0.0...prod/1.0.1) (2025-03-13)
 
 
