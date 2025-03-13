@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Act-Aks/etrack/compare/prod/1.0.0...prod/1.0.1) (2025-03-13)
+
+
+### Bug Fixes
+
+* workflow ([78bb5e8](https://github.com/Act-Aks/etrack/commit/78bb5e8768f607d966e2087a3a294d0554014f4f))
+
 # 1.0.0 (2025-03-13)
 
 
