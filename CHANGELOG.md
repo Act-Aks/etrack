@@ -1,3 +1,11 @@
+## [1.0.9](https://github.com/Act-Aks/etrack/compare/prod/1.0.8...prod/1.0.9) (2025-03-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency expo-dev-client to v5.0.14 ([#32](https://github.com/Act-Aks/etrack/issues/32)) ([0fcac74](https://github.com/Act-Aks/etrack/commit/0fcac74abd738742c211cb1f3438e4cab25ed74a))
+* **deps:** update tanstack-query monorepo to v5.68.0 ([51948fb](https://github.com/Act-Aks/etrack/commit/51948fbc18639dd2fbd8fbf606f65c77d9207baf))
+
 ## [1.0.8](https://github.com/Act-Aks/etrack/compare/prod/1.0.7...prod/1.0.8) (2025-03-14)
 
 
