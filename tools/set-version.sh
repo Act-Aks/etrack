@@ -27,10 +27,12 @@ NEW_ANDROID_BUILD_VERSION=$(increment_version $ANDROID_BUILD_VERSION)
 
 # Update Android versions
 if [ "$OS" == "Darwin" ]; then
-  sed -i '' "s/versionName '[^']*'/versionName '$NEW_VERSION_STRING'/g" $ANDROID_BUILD_FILE
+  echo "OS = $OS"
+
+  sed -i '' "s/versionName \"[^\"]*\"/versionName \"$NEW_VERSION_STRING\"/g" $ANDROID_BUILD_FILE
   sed -i '' "s/versionCode [0-9]\{1,\}/versionCode $NEW_ANDROID_BUILD_VERSION/g" "$ANDROID_BUILD_FILE"
 else
-  sed -i "s/versionName '[^']*'/versionName '$NEW_VERSION_STRING'/g" $ANDROID_BUILD_FILE
+  sed -i "s/versionName \"[^\"]*\"/versionName \"$NEW_VERSION_STRING\"/g" $ANDROID_BUILD_FILE
   sed -i "s/versionCode [0-9]\{1,\}/versionCode $NEW_ANDROID_BUILD_VERSION/g" "$ANDROID_BUILD_FILE"
 fi
 
