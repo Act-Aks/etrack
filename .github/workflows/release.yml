@@ -22,6 +22,12 @@ jobs:
               with:
                   fetch-depth: 0
 
+            - name: Setup Ruby
+              uses: ruby/setup-ruby@v1
+              with:
+                  ruby-version: '3.2.6'
+                  bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
@@ -56,11 +62,6 @@ jobs:
                   echo ANDROID_STORE_PASSWORD=${{ secrets.ANDROID_STORE_PASSWORD }} >> .env
                   echo ANDROID_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }} >> .env
                   echo ANDROID_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }} >> .env
-
-            - name: Setup Bundler
-              run: |
-                  sudo gem install bundler
-                  bundle install
 
             - name: Build app
               run: yarn release:android
