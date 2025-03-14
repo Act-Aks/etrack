@@ -57,6 +57,9 @@ jobs:
                   echo ANDROID_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }} >> .env
                   echo ANDROID_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }} >> .env
 
+            - name: Setup Bundler
+              run: bundle install
+
             - name: Build app
               run: yarn release:android
 
