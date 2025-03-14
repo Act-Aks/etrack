@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/Act-Aks/etrack/compare/prod/1.0.7...prod/1.0.8) (2025-03-14)
+
+
+### Bug Fixes
+
+* release ci yml ([7cdef81](https://github.com/Act-Aks/etrack/commit/7cdef81f5e716792157152ff16a82790df43cd9b))
+
 ## [1.0.7](https://github.com/Act-Aks/etrack/compare/prod/1.0.6...prod/1.0.7) (2025-03-14)
 
 
