@@ -46,3 +46,6 @@ keystore.properties
 fastlane/*
 !fastlane/Fastfile
 !fastlane/Pluginfile
+
+.bundle/
+vendor/
