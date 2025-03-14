@@ -59,7 +59,7 @@ jobs:
 
             - name: Setup Bundler
               run: |
-                  gem install bundler
+                  sudo gem install bundler
                   bundle install
 
             - name: Build app
