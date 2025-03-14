@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Act-Aks/etrack/compare/prod/1.0.4...prod/1.0.5) (2025-03-14)
+
+
+### Bug Fixes
+
+* ci ([5666a00](https://github.com/Act-Aks/etrack/commit/5666a00b32fd29def6e4c676df0e2cd4a0777d3b))
+
 ## [1.0.4](https://github.com/Act-Aks/etrack/compare/prod/1.0.3...prod/1.0.4) (2025-03-13)
 
 
