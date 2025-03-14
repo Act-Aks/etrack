@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Act-Aks/etrack/compare/prod/1.0.5...prod/1.0.6) (2025-03-14)
+
+
+### Bug Fixes
+
+* set-version sh ([d8496a0](https://github.com/Act-Aks/etrack/commit/d8496a06181415689b2e41b0f82a6e9acf38cb0d))
+
 ## [1.0.5](https://github.com/Act-Aks/etrack/compare/prod/1.0.4...prod/1.0.5) (2025-03-14)
 
 
