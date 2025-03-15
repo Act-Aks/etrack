@@ -1,5 +1,4 @@
-# fastlane_version '2.226.0'
-
+# Run before all lanes
 before_all do
     ensure_git_branch(branch: 'main')
     ensure_git_status_clean
@@ -66,11 +65,23 @@ platform :android do
   end
 
   desc 'Build the Android Release application.'
-  lane :release do
-    get_keystore
-    # increment_version_code
-    # distribute
-    gradle(task: "clean", project_dir: "android/")
-    gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
+  lane :build do |options|
+    allowed_options = [:dev]
+    invalid_keys = options.keys - allowed_options
+
+    unless invalid_keys.empty?
+      UI.user_error!("Invalid options: #{invalid_keys.join(', ')}")
+    end
+
+    if options[:dev]
+      UI.message("Skipped keystore generation for development")
+    else
+      UI.message("Generating keystore")
+      get_keystore
+    end
+
+    build_type = options[:dev] ? 'Debug' : 'Release'
+    gradle(task: 'assemble', build_type: build_type, project_dir: 'android/')
   end
+
 end
