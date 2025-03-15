@@ -3,7 +3,7 @@ name: Build and Release
 on:
     push:
         tags:
-            - prod/*
+            - 'prod/*'
     workflow_dispatch:
 
 jobs:
