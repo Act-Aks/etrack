@@ -15,7 +15,7 @@ jobs:
     release:
         if: ${{ !failure() && !cancelled() && github.ref == 'refs/heads/main' }}
         needs: [code-quality]
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
         permissions:
             contents: write
             id-token: write
@@ -65,6 +65,16 @@ jobs:
                   echo ANDROID_STORE_PASSWORD=${{ secrets.ANDROID_STORE_PASSWORD }} >> .env
                   echo ANDROID_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }} >> .env
                   echo ANDROID_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }} >> .env
+
+            - name: Cache Gradle Wrapper
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      ~/.gradle/caches
+                      ~/.gradle/wrapper
+                  key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+                  restore-keys: |
+                      ${{ runner.os }}-gradle-
 
             - name: Build app
               run: yarn release:android
