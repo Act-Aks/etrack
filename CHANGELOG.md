@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Act-Aks/etrack/compare/prod/1.0.9...prod/1.1.0) (2025-03-15)
+
+
+### Features
+
+* updates ci and fastlane script ([ce1d5a3](https://github.com/Act-Aks/etrack/commit/ce1d5a3bbf685d6acf4b04fd8f38b31c1870440a))
+
 ## [1.0.9](https://github.com/Act-Aks/etrack/compare/prod/1.0.8...prod/1.0.9) (2025-03-14)
 
 
