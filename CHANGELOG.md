@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Act-Aks/etrack/compare/prod/1.1.0...prod/1.1.1) (2025-03-15)
+
+
+### Bug Fixes
+
+* release ci workflow ([4ab6006](https://github.com/Act-Aks/etrack/commit/4ab600609059d280e9ab24f1780b3e5e6eca047a))
+
 # [1.1.0](https://github.com/Act-Aks/etrack/compare/prod/1.0.9...prod/1.1.0) (2025-03-15)
 
 
