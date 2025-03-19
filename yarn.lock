@@ -14199,12 +14199,12 @@ __metadata:
   linkType: hard
 
 "react-native-nitro-modules@npm:^0.25.1":
-  version: 0.25.1
-  resolution: "react-native-nitro-modules@npm:0.25.1"
+  version: 0.25.2
+  resolution: "react-native-nitro-modules@npm:0.25.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/6d37959630434030703195d113093470f2733e52de129365ccbb9bd7f57cb6375b3d98f912c299799f7e0bc508078ecb021b554c68cb04e9bff7be72745ec3af
+  checksum: 10/45f0c639d21da55302e641cc6a36ffd388efb3233d12d804807f422a37387079bda713e59482ab5a5cf7c0b867a0d68bc6df729c15a2e6035c2b2cbb87a0e28a
   languageName: node
   linkType: hard
 
