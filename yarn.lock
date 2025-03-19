@@ -1493,9 +1493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/eas-json@npm:15.0.13":
-  version: 15.0.13
-  resolution: "@expo/eas-json@npm:15.0.13"
+"@expo/eas-json@npm:16.0.0":
+  version: 16.0.0
+  resolution: "@expo/eas-json@npm:16.0.0"
   dependencies:
     "@babel/code-frame": "npm:7.23.5"
     "@expo/eas-build-job": "npm:1.0.170"
@@ -1508,7 +1508,7 @@ __metadata:
     semver: "npm:7.5.2"
     terminal-link: "npm:2.1.1"
     tslib: "npm:2.4.1"
-  checksum: 10/646f3a1c63797cb2345e1f8d281cfcbfa0f5f1ef1de20950297c09a79a38e12fa451cc9beedc969f3c5ab57380d4896f336ed7f8679b09d17755f2a304fbc595
+  checksum: 10/ee9c2b108ffc4673bdecb76e2952b9c40f7502d21c54d3bd7284a2e6aff503f2e8bf19d1b0f0a664483234817eb43f6b6bb2a8c3b9386ffea7c4ce35a1bdbd16
   languageName: node
   linkType: hard
 
@@ -6903,16 +6903,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eas-cli@npm:^15.0.15":
-  version: 15.0.15
-  resolution: "eas-cli@npm:15.0.15"
+"eas-cli@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "eas-cli@npm:16.0.0"
   dependencies:
     "@expo/apple-utils": "npm:2.1.11"
     "@expo/code-signing-certificates": "npm:0.0.5"
     "@expo/config": "npm:10.0.6"
     "@expo/config-plugins": "npm:9.0.12"
     "@expo/eas-build-job": "npm:1.0.170"
-    "@expo/eas-json": "npm:15.0.13"
+    "@expo/eas-json": "npm:16.0.0"
     "@expo/env": "npm:^1.0.0"
     "@expo/json-file": "npm:8.3.3"
     "@expo/logger": "npm:1.0.117"
@@ -6990,7 +6990,7 @@ __metadata:
     zod: "npm:^3.23.8"
   bin:
     eas: bin/run
-  checksum: 10/d15aea881f34742428eb875af7455342e3bf69be2b770b7d27fda0f010471fbd45e8a4279544f32eb8c5631c7086dc81b0daeeb4532b5509f6fe8d8024c10a34
+  checksum: 10/b33e5a1ebc37fb3937d3c13b382f47b47e13f87310c2b4bc59b6763b808bf2597262ae3c423550a6f99b7fefb78d5706c423dbbefec4af4f1376f3087ecd7d7a
   languageName: node
   linkType: hard
 
@@ -7707,7 +7707,7 @@ __metadata:
     "@types/react": "npm:^18.3.12"
     "@types/react-test-renderer": "npm:^19.0.0"
     axios: "npm:^1.8.3"
-    eas-cli: "npm:^15.0.15"
+    eas-cli: "npm:^16.0.0"
     eslint: "npm:^8.57.0"
     eslint-config-expo: "npm:~8.0.1"
     expo: "npm:^52.0.39"
