@@ -64,7 +64,7 @@
         "react-native-reanimated": "^3.17.1",
         "react-native-safe-area-context": "5.3.0",
         "react-native-screens": "^4.9.1",
-        "react-native-unistyles": "3.0.0-nightly-20250226",
+        "react-native-unistyles": "3.0.0-nightly-20250320",
         "react-native-web": "^0.19.13",
         "react-native-webview": "13.13.4"
     },
