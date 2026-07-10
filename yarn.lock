@@ -259,10 +259,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-string-parser@npm:^7.27.1":
+  version: 7.29.7
+  resolution: "@babel/helper-string-parser@npm:7.29.7"
+  checksum: 10/4d8ef0ef7105f3d9fe4361137c8f42e5b4c7a52b5380b962762f2a528a1ba89064e2c6236090716ce34b63707b886ae0ebf36b2c2fcc2851f27e652febfc3648
+  languageName: node
+  linkType: hard
+
 "@babel/helper-validator-identifier@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/helper-validator-identifier@npm:7.25.9"
   checksum: 10/3f9b649be0c2fd457fa1957b694b4e69532a668866b8a0d81eabfa34ba16dbf3107b39e0e7144c55c3c652bf773ec816af8df4a61273a2bb4eb3145ca9cf478e
+  languageName: node
+  linkType: hard
+
+"@babel/helper-validator-identifier@npm:^7.28.5":
+  version: 7.29.7
+  resolution: "@babel/helper-validator-identifier@npm:7.29.7"
+  checksum: 10/2efa42701eb05babf26dff3332109c9e5e1a3400a71fb9e68ee27af28235036a2a72c2494c04bdab3f909075f42a58b2e8271074372bc7f8e79ec02bd364d7a7
   languageName: node
   linkType: hard
 
@@ -1158,6 +1172,16 @@ __metadata:
     debug: "npm:^4.3.1"
     globals: "npm:^11.1.0"
   checksum: 10/e9c77390ce93d1f79fb0d83fc7c67282314ba73fa746ec3cf78e999b2dcda340e200a4fc9d8c5c4ca08f183e1aea2a5c0eb6e4ce802e43c4b10124dbc7d4e748
+  languageName: node
+  linkType: hard
+
+"@babel/types@npm:7.29.0":
+  version: 7.29.0
+  resolution: "@babel/types@npm:7.29.0"
+  dependencies:
+    "@babel/helper-string-parser": "npm:^7.27.1"
+    "@babel/helper-validator-identifier": "npm:^7.28.5"
+  checksum: 10/bfc2b211210f3894dcd7e6a33b2d1c32c93495dc1e36b547376aa33441abe551ab4bc1640d4154ee2acd8e46d3bbc925c7224caae02fcaf0e6a771e97fccc661
   languageName: node
   linkType: hard
 
@@ -7740,7 +7764,7 @@ __metadata:
     react-native-safe-area-context: "npm:5.3.0"
     react-native-screens: "npm:^4.9.1"
     react-native-svg: "npm:^15.11.2"
-    react-native-unistyles: "npm:3.0.0-nightly-20250226"
+    react-native-unistyles: "npm:3.3.0"
     react-native-web: "npm:^0.19.13"
     react-native-webview: "npm:13.13.4"
     react-test-renderer: "npm:19.0.0"
@@ -14269,16 +14293,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-unistyles@npm:3.0.0-nightly-20250226":
-  version: 3.0.0-nightly-20250226
-  resolution: "react-native-unistyles@npm:3.0.0-nightly-20250226"
+"react-native-unistyles@npm:3.3.0":
+  version: 3.3.0
+  resolution: "react-native-unistyles@npm:3.3.0"
+  dependencies:
+    "@babel/types": "npm:7.29.0"
   peerDependencies:
     "@react-native/normalize-colors": "*"
     react: "*"
     react-native: ">=0.76.0"
     react-native-edge-to-edge: "*"
     react-native-nitro-modules: "*"
-  checksum: 10/75412ddc6c40ea9d2ab7d101134cf9966c248b0c402ac634e1a0d974e305e00a27aa263395d283d9fe9eb0e39ebed9c3fa8afeeeca84558e9655bff9a332bbbd
+    react-native-reanimated: "*"
+  peerDependenciesMeta:
+    react-native-edge-to-edge:
+      optional: true
+    react-native-reanimated:
+      optional: true
+  checksum: 10/7cbec0ac6b1e50e689cca53861cf9d499c9e748e83aad970143b7da77f8b1b2d6c036492877d9d93a0bb60dfa1e36bf77774b514cbe1d2cca0409dcf7618a247
   languageName: node
   linkType: hard
 
